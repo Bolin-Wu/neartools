@@ -19,14 +19,18 @@ jobs:
 
       - uses: r-lib/actions/setup-r@v2
         with:
+          # try to debug
+          install-r: true
+          # ---- #
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
+
           extra-packages: any::rcmdcheck
           needs: check
-          # try to debug
-          install-r: true
+
+
 
       - uses: r-lib/actions/check-r-package@v2
 
