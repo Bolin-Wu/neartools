@@ -20,14 +20,12 @@ This package contains functions as follows:
 -   `sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv files.
     This conversion is needed because the maelstrom harmonization
     package does not read *.sav* data. This function can prevent
-    repetitive work of converting *.sav* to *.csv* one by one.  
-    More details please see description in `?sav_to_csv()`
+    repetitive work of converting *.sav* to *.csv* one by one.
 
 -   `pretty_template`: Automatically create an ‘rmd’ folder, create &
     open an rmd file with a nice looking template. This facilitates the
     communication with researchers & tracking the records. By default it
     complies an *html* file.  
-    More details please see description in `?pretty_template()`.  
     For more information about R markdown please see
     [here](https://rmarkdown.rstudio.com).
 
@@ -39,9 +37,9 @@ This package contains functions as follows:
         double check those IDs.
     -   A new distinct ID. E.g, for both people with ID = 2, the new ID
         are 2.0, 2.1, etc. It is appended before original ID column.
-        This new ID creation is not a recommended solution. It is just a
-        temporary instrument for further other works, e.g. importing
-        data to SQL database.
+        **This new ID creation is not a recommended solution.** It is
+        just a temporary instrument for further other works,
+        e.g. importing data to SQL database.
 
 -   *To be continued….*
 
