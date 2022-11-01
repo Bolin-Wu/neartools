@@ -1,8 +1,4 @@
 
-# clear the startup meeesage
-cat("\014")
-# ---------#
-
 local({
 
   # the requested version of renv
@@ -947,36 +943,3 @@ local({
 
 
 )
-
-# customize
-.First <- function(){
-
-  # adapted from: https://lapsedgeographer.london/2020-11/custom-r-prompt/
-  my_prompt <- function(...) {
-
-    git_branch <- suppressWarnings(system("git rev-parse --abbrev-ref HEAD",
-                                          ignore.stderr = TRUE, intern = TRUE))
-
-    if (length(git_branch) != 0) {
-      git_msg <- paste0(" @", git_branch)
-    } else {
-      git_msg <- ""
-    }
-
-    console_msg <- glue::glue(
-      "[{format(Sys.time(), '%H:%M')} {'>'}",
-      "{git_msg}]> "
-    )
-
-    options(prompt = console_msg)
-
-    invisible(TRUE)
-
-  }
-
-
-  my_prompt()
-
-  addTaskCallback(my_prompt)
-
-}
