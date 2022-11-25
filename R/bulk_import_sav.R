@@ -1,4 +1,3 @@
-
 #' Bulk import SPSS(sav) data into R
 #'
 #' Many NEAR databases stroe data in SPSS. Therefore chances are that we need
@@ -6,7 +5,7 @@
 #'
 #'
 #' @param data_dir The folder storing SPSS files.
-#' @note \code{here} function is a fast and neat way of defining data directory (*data_dir*).
+#' @note \code{here} function is a fast and neat way of defining data directory `data_dir`.
 #'
 #'
 #' @return 1. Import SPSS files in `data_dir` to R global environment;
@@ -17,10 +16,9 @@
 #' @importFrom haven read_sav
 #' @importFrom here here
 #'
-
-#'
+#' @examples
 #' \dontrun{
-#' # assume data files are in folder 'data/raw/SNAC-K'
+#' # Assume the data files are in path:'data/raw/SNAC-K'
 #' db_dir <- here("data", "raw","SNAC-K")
 #' bulk_import_csv(data_dir = db_dir)
 #' }
@@ -32,7 +30,6 @@ bulk_import_csv = function(data_dir = NULL){
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
   }
-
   tb_name <- list.files(path = data_dir, pattern = "\\.sav$")
   # get rid of .sav extension when writing the csv file
   clean_name <- tools::file_path_sans_ext(tb_name)
