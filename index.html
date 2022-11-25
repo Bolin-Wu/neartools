@@ -71,7 +71,6 @@
 </h1>
 <p>This package contains functions as follows:</p>
 <ul>
-<li><p><code>sav_to_csv</code>: Convert all the SPSS data files (<em>.sav</em>) to csv files. This conversion is needed because the maelstrom harmonization package does not read <em>.sav</em> data. This function can prevent repetitive work of converting <em>.sav</em> to <em>.csv</em> one by one.</p></li>
 <li><p><code>pretty_template</code>: Automatically create an ‘rmd’ folder, create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
 For more information about R markdown please see <a href="https://rmarkdown.rstudio.com" class="external-link">here</a>.</p></li>
 <li>
@@ -82,6 +81,8 @@ For more information about R markdown please see <a href="https://rmarkdown.rstu
 <li>A new distinct ID. E.g, for both people with ID = 2, the new ID are 2.0, 2.1, etc. It is appended before original ID column. <strong>This new ID creation is not a recommended solution.</strong> It is just a temporary instrument for further other works, e.g. importing data to SQL database.</li>
 </ul>
 </li>
+<li><p><code>sav_to_csv</code>: Convert all the SPSS data files (<em>.sav</em>) to csv files. This conversion is needed because the maelstrom harmonization package does not read <em>.sav</em> data. This function can prevent repetitive work of converting <em>.sav</em> to <em>.csv</em> one by one.</p></li>
+<li><p><code>bulk_import_sav</code>: Import all SPSS files in a folder to R global environment.</p></li>
 <li><p><em>To be continued….</em></p></li>
 </ul>
 <div class="section level2">
@@ -104,14 +105,15 @@ For more information about R markdown please see <a href="https://rmarkdown.rstu
 <span><span class="op">?</span><span class="fu"><a href="reference/pretty_template.html">pretty_template</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">?</span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># conver data files</span></span>
-<span><span class="fu"><a href="reference/sav_to_csv.html">sav_to_csv</a></span><span class="op">(</span><span class="st">"original_data"</span>, <span class="st">"SNAC-K"</span><span class="op">)</span></span>
-<span></span>
 <span><span class="co"># initiate a rmd file </span></span>
 <span><span class="fu"><a href="reference/pretty_template.html">pretty_template</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reply to Prof XXX"</span>, output_file <span class="op">=</span> <span class="st">"word"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># check ID duplication</span></span>
-<span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">baseline_example_Relative_220504</span>, id_str <span class="op">=</span> <span class="st">"lopnr"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">baseline_example_Relative_220504</span>, id_str <span class="op">=</span> <span class="st">"lopnr"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># handle SPSS files</span></span>
+<span><span class="fu"><a href="reference/sav_to_csv.html">sav_to_csv</a></span><span class="op">(</span><span class="st">"original_data"</span>, <span class="st">"SNAC-K"</span><span class="op">)</span></span>
+<span><span class="fu">bulk_import_sav</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"raw"</span>,<span class="st">"SNAC-K"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 
