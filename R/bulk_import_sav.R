@@ -26,7 +26,7 @@
 #' @export
 #'
 #'
-bulk_import_csv = function(data_dir = NULL){
+bulk_import_sav = function(data_dir = NULL){
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
   }
