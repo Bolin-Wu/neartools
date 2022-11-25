@@ -17,11 +17,6 @@ The goal of this package is to practice the “don’t repeat yourself”
 
 This package contains functions as follows:
 
--   `sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv files.
-    This conversion is needed because the maelstrom harmonization
-    package does not read *.sav* data. This function can prevent
-    repetitive work of converting *.sav* to *.csv* one by one.
-
 -   `pretty_template`: Automatically create an ‘rmd’ folder, create &
     open an rmd file with a nice looking template. This facilitates the
     communication with researchers & tracking the records. By default it
@@ -40,6 +35,14 @@ This package contains functions as follows:
         **This new ID creation is not a recommended solution.** It is
         just a temporary instrument for further other works,
         e.g. importing data to SQL database.
+
+-   `sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv files.
+    This conversion is needed because the maelstrom harmonization
+    package does not read *.sav* data. This function can prevent
+    repetitive work of converting *.sav* to *.csv* one by one.
+
+-   `bulk_import_sav`: Import all SPSS files in a folder to R global
+    environment.
 
 -   *To be continued….*
 
@@ -64,12 +67,13 @@ library(neartools)
 ?pretty_template()
 ?fix_dup_id()
 
-# conver data files
-sav_to_csv("original_data", "SNAC-K")
-
 # initiate a rmd file 
 pretty_template(name = "Reply to Prof XXX", output_file = "word")
 
 # check ID duplication
 fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
+
+# handle SPSS files
+sav_to_csv("original_data", "SNAC-K")
+bulk_import_sav(here("data", "raw","SNAC-K"))
 ```
