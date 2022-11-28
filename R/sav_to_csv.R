@@ -37,7 +37,7 @@
 
 sav_to_csv <- function(data_folder_name, db_name) {
   # use file.path to create a file path that is compatible on different OS.
-  db_dir <- here(data_folder_name, db_name)
+  db_dir <- here::here(data_folder_name, db_name)
   tb_name <- list.files(path = db_dir, pattern = "\\.sav$")
   # get rid of .sav extension when writing the csv file
   clean_name <- file_path_sans_ext(tb_name)
