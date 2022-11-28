@@ -5,7 +5,7 @@
 #' \itemize{
 #'   \item Check if a data file has replicated ID.
 #'   \item If there is replicated id, find out which IDs are replicated. Generate new distinct new id & append it before the original ID column.
-#'}
+#' }
 #' The new ID can be temporarily used as primary key when importing data to MySQL.
 #'
 #' @param df A tibble to be examined.

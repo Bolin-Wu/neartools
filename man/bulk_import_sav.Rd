@@ -10,7 +10,7 @@ bulk_import_sav(data_dir = NULL)
 \item{data_dir}{The folder storing SPSS files.}
 }
 \value{
-1. Import SPSS files in `data_dir` to R global environment;
+1. Import SPSS files in 'data_dir' to R global environment;
 2. List names of tables imported to R.
 }
 \description{
@@ -23,7 +23,7 @@ to import many SPSS files at a time in R for further analysis.
 \examples{
 \dontrun{
 # Assume the data files are in path:'data/raw/SNAC-K'
-db_dir <- here("data", "raw","SNAC-K")
+db_dir <- here::here("data", "raw", "SNAC-K")
 bulk_import_csv(data_dir = db_dir)
 }
 
