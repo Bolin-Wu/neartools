@@ -40,7 +40,7 @@ For more information about R markdown please see [here](https://rmarkdown.rstudi
   
 * `sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv files. This conversion is needed because the maelstrom harmonization package does not read *.sav* data. This function can prevent repetitive work of converting *.sav* to *.csv* one by one. 
 
-* `bulk_import_sav`: Import all SPSS files in a folder to R global environment. 
+* `bulk_import`: Bulk import SPSS, STATA and MS Excel files in a folder to R global environment. 
 
 * *To be continued....*
 
@@ -71,8 +71,14 @@ pretty_template(name = "Reply to Prof XXX", output_file = "word")
 # check ID duplication
 fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 
-# handle SPSS files
+# convert SPSS files
 sav_to_csv("original_data", "SNAC-K")
-bulk_import_sav(here("data", "raw","SNAC-K"))
+
+# data import
+db_dir <- here("data", "raw","SNAC-K")
+# this import all csv, sav and dta files in the 'db_dir'
+bulk_import(data_dir = db_dir)
+# this import only a specific type files
+bulk_import(data_dir = db_dir, file_type = 'sav')
 
 ```
