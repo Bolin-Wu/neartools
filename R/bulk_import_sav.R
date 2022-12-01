@@ -1,6 +1,6 @@
 #' Bulk import SPSS(sav) data into R
 #'
-#' Many NEAR databases stroe data in SPSS. Therefore chances are that we need
+#' Many NEAR databases stored data in SPSS. Therefore chances are that we need
 #' to import many SPSS files at a time in R for further analysis.
 #'
 #'
@@ -26,7 +26,7 @@
 #' @export
 #'
 #'
-bulk_import_csv = function(data_dir = NULL){
+bulk_import_sav = function(data_dir = NULL){
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
   }
