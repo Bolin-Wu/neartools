@@ -24,6 +24,7 @@ pretty_template <-
     }
 
     # create a folder for Rmd
+    message("Create folder 'rmd'")
     dir.create("rmd", showWarnings = FALSE)
 
     # usethis::use_package("usethis")
