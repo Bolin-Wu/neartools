@@ -59,7 +59,7 @@ fix_dup_id <- function(df, id_str) {
   # freq table of column contains "lopnr"
   n_occur <- data.frame(table(
     df %>%
-      select(id_nr)
+      select(all_of(id_nr))
   ))
   colnames(n_occur) <- c("id", "Freq")
 
