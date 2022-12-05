@@ -9,7 +9,7 @@ bulk_import(data_dir = NULL, file_type = "all")
 \arguments{
 \item{data_dir}{The folder storing data files.}
 
-\item{file_type}{The data file type. Options could be 'sav' or 'dta' or 'csv'. Default is 'Null'.
+\item{file_type}{The data file type. Options could be 'sav' or 'dta' or 'csv'. Default is 'all'.
 \itemize{
 \item sav uses \code{read_sav()} from 'haven' package.
 \item dta uses \code{read_dta()} from 'haven' package.

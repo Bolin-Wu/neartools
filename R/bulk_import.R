@@ -6,7 +6,7 @@
 #'
 #'
 #' @param data_dir The folder storing data files.
-#' @param file_type The data file type. Options could be 'sav' or 'dta' or 'csv'. Default is 'Null'.
+#' @param file_type The data file type. Options could be 'sav' or 'dta' or 'csv'. Default is 'all'.
 #' \itemize{
 #'   \item sav uses \code{read_sav()} from 'haven' package.
 #'   \item dta uses \code{read_dta()} from 'haven' package.
