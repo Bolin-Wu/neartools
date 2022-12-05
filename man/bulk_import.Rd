@@ -38,13 +38,13 @@ This function is to bulk import data files of types mentioned above into R envir
 \examples{
 \dontrun{
 # Assume the data files are in path:'data/raw/SNAC-K'
-db_dir <- here("data", "raw","SNAC-K")
+db_dir <- here("data", "raw", "SNAC-K")
 
 # this import all csv, sav and dta files in the 'db_dir'
 bulk_import(data_dir = db_dir)
 
 # this import only a specific type files
-bulk_import(data_dir = db_dir, file_type = 'sav')
+bulk_import(data_dir = db_dir, file_type = "sav")
 }
 
 }
