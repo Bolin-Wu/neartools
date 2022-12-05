@@ -19,13 +19,13 @@
 #'
 #'
 #'
-#' @return
-#' 1. Import SPSS files in `data_dir` to R global environment;
-#' 2. List names of tables imported to R.
-#' @md
+#' @return Two results as follows:
+#' * Import SPSS files in `data_dir` to R global environment;
+#' * List names of tables imported to R.
+#'@md
 #'
 #' @importFrom tools file_path_sans_ext
-#' @importFrom utils write.csv
+#' @importFrom utils write.csv read.csv
 #' @importFrom haven read_sav read_dta
 #' @importFrom here here
 #'

@@ -18,7 +18,8 @@ bulk_import(data_dir = NULL, file_type = "all")
 }}
 }
 \value{
-\enumerate{
+Two results as follows:
+\itemize{
 \item Import SPSS files in \code{data_dir} to R global environment;
 \item List names of tables imported to R.
 }

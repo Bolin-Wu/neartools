@@ -32,6 +32,7 @@
 #' }
 #'
 fix_dup_id <- function(df, id_str) {
+  Freq <- NULL # make 'Freq' to be a function specific variable
   df_name <- deparse(substitute(df))
   df_colnames <- colnames(df)
   # check the existance of id_str
@@ -46,6 +47,10 @@ fix_dup_id <- function(df, id_str) {
   # select the column of id
   id_nr <- df_colnames[check_id_str]
 
+  if (any(is.na(df[[id_nr]]))) {
+    stop("There is NA in ID column.")
+  }
+
   if (length(unique(df[[id_nr]])) == length(df[[id_nr]])) {
     stop("There is no duplicated id!")
   } else {
@@ -57,6 +62,7 @@ fix_dup_id <- function(df, id_str) {
       select(id_nr)
   ))
   colnames(n_occur) <- c("id", "Freq")
+
   # filter out replicated id
   freq_tab <- n_occur[n_occur$Freq > 1, ]
   # find the replicated id
