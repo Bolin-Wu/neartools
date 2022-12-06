@@ -2,7 +2,7 @@ pandoc: 2.19.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-12-05T14:24Z
+last_built: 2022-12-06T13:29Z
 urls:
   reference: https://bolin-wu.github.io/neartools/reference
   article: https://bolin-wu.github.io/neartools/articles
