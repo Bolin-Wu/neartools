@@ -31,7 +31,7 @@ The new ID can be temporarily used as primary key when importing data to MySQL.
 }
 \examples{
 \dontrun{
-neartools::fix_dup_id(baseline_example_Relative_220504, "lopnr")$logic_rep
+neartools::fix_dup_id(df_fix_dup_id, id_str = 'id')
 }
 
 }
