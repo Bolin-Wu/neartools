@@ -7,6 +7,8 @@
 coverage](https://codecov.io/gh/Bolin-Wu/neartools/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Bolin-Wu/neartools?branch=master)
 <!-- badges: end -->
 
+![](man/figures/country_map.jpeg)<!-- -->
+
 # Motivation
 
 There are many repetitive works when doing data harmonization and
