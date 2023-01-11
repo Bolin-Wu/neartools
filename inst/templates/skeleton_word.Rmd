@@ -1,8 +1,6 @@
 ---
 title: "Template"
-author:
-  - name: "Your Name"
-    affiliation: "Your company/university"
+author: "Your Name"
 date: 'YYYY-MM-DD (updated: `r Sys.Date()`) '
 output:
   word_document:
