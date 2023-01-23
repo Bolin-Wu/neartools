@@ -11,6 +11,6 @@ A data frame with 2 variables: \code{id}, \code{num},
 df_fix_dup_id
 }
 \description{
-A data frame to test the functions in package.
+A data frame to test the \code{fix_dup_id} function in package.
 }
 \keyword{datasets}
