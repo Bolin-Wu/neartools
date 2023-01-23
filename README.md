@@ -66,10 +66,8 @@ devtools::install_github("Bolin-Wu/neartools")
 # load the package
 library(neartools)
 
-# check function's documentation
-?sav_to_csv()
-?pretty_template()
-?fix_dup_id()
+# get the label from SPSS and STATA file in
+get_label_df(df_w_label = fake_snack_df)
 
 # initiate a rmd file 
 pretty_template(name = "Reply to Prof XXX", output_file = "word")

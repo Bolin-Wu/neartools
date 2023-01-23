@@ -17,5 +17,7 @@ During work, many times we receive SPSS or STATA data files with labels. This fu
 This can help us to inspect data more conveniently.
 }
 \examples{
+\dontrun{
 get_label_df(fake_snack_df)
+}
 }
