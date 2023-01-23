@@ -57,7 +57,7 @@ You can install the development version of neartools from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Bolin-Wu/neartools")
+devtools::install_github("Bolin-Wu/neartools", force = TRUE)
 ```
 
 ## Example
