@@ -32,7 +32,7 @@
 #' }
 #'
 fix_dup_id <- function(df, id_str) {
-  Freq <- NULL # make 'Freq' to be a function specific variable
+  Freq <- NULL # make 'Freq' to be a function specific variable.
   df_name <- deparse(substitute(df))
   df_colnames <- colnames(df)
   # check the existance of id_str
