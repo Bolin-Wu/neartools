@@ -25,11 +25,9 @@ Imports:
     stringr,
     sjlabelled
 Suggests: 
-    covr,
     rmarkdown,
     roxygen2,
     rmdformats,
-    flextable,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: 
