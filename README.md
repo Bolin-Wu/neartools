@@ -21,10 +21,12 @@ The goal of this package is to practice the “don’t repeat yourself”
 
 This package contains functions as follows:
 
--   `pretty_template`: Automatically create an ‘rmd’ folder, create &
-    open an rmd file with a nice looking template. This facilitates the
-    communication with researchers & tracking the records. By default it
-    complies an *html* file.  
+-   `get_label_df`: Get the labels from a dataframe.
+
+-   `get_pretty_template`: Automatically create an ‘rmd’ folder, create
+    & open an rmd file with a nice looking template. This facilitates
+    the communication with researchers & tracking the records. By
+    default it complies an *html* file.  
     For more information about R markdown please see
     [here](https://rmarkdown.rstudio.com).
 
@@ -40,12 +42,12 @@ This package contains functions as follows:
         just a temporary instrument for further other works,
         e.g. importing data to SQL database.
 
--   `sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv files.
-    This conversion is needed because the maelstrom harmonization
+-   `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv
+    files. This conversion is needed because the maelstrom harmonization
     package does not read *.sav* data. This function can prevent
     repetitive work of converting *.sav* to *.csv* one by one.
 
--   `bulk_import`: Bulk import SPSS, STATA and MS Excel files in a
+-   `import_bulk`: Bulk import SPSS, STATA and MS Excel files in a
     folder to R global environment.
 
 -   *To be continued….*
@@ -70,7 +72,7 @@ library(neartools)
 get_label_df(df_w_label = fake_snack_df)
 
 # initiate a rmd file 
-pretty_template(name = "Reply to Prof XXX", output_file = "word")
+get_pretty_template(name = "Reply to Prof XXX", output_file = "word")
 
 # check ID duplication
 fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
@@ -81,7 +83,7 @@ sav_to_csv("original_data", "SNAC-K")
 # data import
 db_dir <- here("data", "raw","SNAC-K")
 # this import all csv, sav and dta files in the 'db_dir'
-bulk_import(data_dir = db_dir)
+import_bulk(data_dir = db_dir)
 # this import only a specific type files
-bulk_import(data_dir = db_dir, file_type = 'sav')
+import_bulk(data_dir = db_dir, file_type = 'sav')
 ```
