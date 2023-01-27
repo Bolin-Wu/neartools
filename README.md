@@ -78,7 +78,7 @@ get_pretty_template(name = "Reply to Prof XXX", output_file = "word")
 fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 
 # convert SPSS files
-sav_to_csv("original_data", "SNAC-K")
+export_sav_to_csv("original_data", "SNAC-K")
 
 # data import
 db_dir <- here("data", "raw","SNAC-K")
