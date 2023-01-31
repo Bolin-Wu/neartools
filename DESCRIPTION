@@ -23,7 +23,8 @@ Imports:
     usethis,
     utils,
     stringr,
-    sjlabelled
+    sjlabelled,
+    readxl
 Suggests: 
     rmarkdown,
     roxygen2,
