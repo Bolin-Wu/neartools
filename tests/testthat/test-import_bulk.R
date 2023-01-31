@@ -3,6 +3,6 @@ test_that("Data directory can not be empty", {
 })
 
 test_that("File type has to be one of then four pre-defined", {
-  expect_error(import_bulk(data_dir = "/test",file_type = 'xlsx' ),"Invalid file type.")
+  expect_error(import_bulk(data_dir = "/test",file_type = 'xls' ),"Invalid file type.")
 })
 
