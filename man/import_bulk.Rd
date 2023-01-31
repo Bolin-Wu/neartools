@@ -14,6 +14,7 @@ import_bulk(data_dir = NULL, file_type = "all")
 \item sav uses \code{read_sav()} from 'haven' package.
 \item dta uses \code{read_dta()} from 'haven' package.
 \item csv uses \code{read.csv()} from 'utils' package.
+\item xlsx uses \code{read_excel()} from 'readxl' package.
 \item The default 'all' imports all three kinds of data.
 }}
 }

@@ -11,6 +11,7 @@
 #'   \item sav uses \code{read_sav()} from 'haven' package.
 #'   \item dta uses \code{read_dta()} from 'haven' package.
 #'   \item csv uses \code{read.csv()} from 'utils' package.
+#'   \item xlsx uses \code{read_excel()} from 'readxl' package.
 #'   \item The default 'all' imports all three kinds of data.
 #' }
 #' @note
@@ -28,6 +29,7 @@
 #' @importFrom utils write.csv read.csv
 #' @importFrom haven read_sav read_dta
 #' @importFrom here here
+#' @importFrom readxl read_excel
 #'
 #' @examples
 #' \dontrun{
@@ -48,8 +50,8 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
   }
-  if (!file_type %in% c("all", "sav", "dta", "csv")) {
-    stop("Invalid file type. It has to be one of 'all','sav', 'dta', 'csv'.")
+  if (!file_type %in% c("all", "sav", "dta", "csv","xlsx")) {
+    stop("Invalid file type. It has to be one of 'all','sav', 'dta', 'csv','xlsx'.")
   }
   if (file_type == "sav") {
     tb_name <- list.files(path = data_dir, pattern = "\\.sav$")
@@ -60,8 +62,11 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   if (file_type == "csv") {
     tb_name <- list.files(path = data_dir, pattern = "\\.csv$")
   }
+  if (file_type == "xlsx") {
+    tb_name <- list.files(path = data_dir, pattern = "\\.xlsx$")
+  }
   if (file_type == "all") {
-    tb_name <- list.files(path = data_dir, pattern = ".*[sav|dta|csv]$")
+    tb_name <- list.files(path = data_dir, pattern = ".*[sav|dta|csv|xlsx]$")
   }
   # report error if can not get any table
   stopifnot("Can not find relevant data files." = length(tb_name) > 0)
@@ -85,6 +90,11 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
       assign(clean_name[i],
         read.csv(here(data_dir, tb_name[i])),
         envir = .GlobalEnv
+      )
+    } else if (grepl(".*xlsx$", tb_name[i])) {
+      assign(clean_name[i],
+             read_excel(here(data_dir, tb_name[i]), sheet = 1),
+             envir = .GlobalEnv
       )
     }
   }
