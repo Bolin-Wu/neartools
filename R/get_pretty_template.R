@@ -1,19 +1,21 @@
 #' @title get_pretty_template
 #' @description Use the skeleton.Rmd for starting analysis. This function creates a new folder "rmd" at root of project and create an rmd file with nice-looking template there.
-#' @param name name of rmd file. (no need to add suffix ".Rmd")
-#' @param open should the file be opened after being created
+#' @param name Name of rmd file. (no need to add suffix ".Rmd")
+#' @param subDir Name of the folder where rmd file will be created. By default it is 'rmd'. Remember to connect sub-dir names with '/'.
+#' @param open Should the file be opened after being created
 #' @param output_file "word" or "html", by default it is "html"
-#' @param ... arguments to be passed to \link[usethis]{use_template}
+#' @param ... Arguments to be passed to \link[usethis]{use_template}
 #' @importFrom usethis use_template
 #' @importFrom here here
 #' @examples
 #' \dontrun{
-#' neartools::get_pretty_template(name = "Reply to Prof")
+#'  neartools::get_pretty_template(subDir = 'Enquiry/SNAC',name = "missing_value_problems",output_file = "word")
 #' }
 #'
 #' @export
 get_pretty_template <-
   function(name = NULL,
+           subDir = 'rmd',
            output_file = "html",
            open = interactive(),
            ...) {
@@ -24,24 +26,23 @@ get_pretty_template <-
     }
 
     # create a folder for Rmd
-    subDir <- "rmd"
     if (dir.exists(subDir)) {
-      message("'rmd' folder already exists.")
+      message("folder:", subDir," already exists.")
     } else {
-      message("Create folder 'rmd'.")
-      dir.create(subDir, showWarnings = FALSE)
+      message("Create folder: ", subDir, ".")
+      dir.create(subDir,  showWarnings = TRUE, recursive = TRUE)
     }
 
     # usethis::use_package("usethis")
     if (output_file == "html") {
       usethis::use_template("skeleton.Rmd",
-        save_as = paste0("rmd/", name),
+        save_as = paste0(subDir, "/",name),
         data = list(),
         package = "neartools", ..., open = open
       )
     } else if (output_file == "word") {
       usethis::use_template("skeleton_word.Rmd",
-        save_as = paste0("rmd/", name),
+        save_as = paste0(subDir, "/",name),
         data = list(),
         package = "neartools", ..., open = open
       )

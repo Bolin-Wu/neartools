@@ -6,26 +6,29 @@
 \usage{
 get_pretty_template(
   name = NULL,
+  subDir = "rmd",
   output_file = "html",
   open = interactive(),
   ...
 )
 }
 \arguments{
-\item{name}{name of rmd file. (no need to add suffix ".Rmd")}
+\item{name}{Name of rmd file. (no need to add suffix ".Rmd")}
+
+\item{subDir}{Name of the folder where rmd file will be created. By default it is 'rmd'. Remember to connect sub-dir names with '/'.}
 
 \item{output_file}{"word" or "html", by default it is "html"}
 
-\item{open}{should the file be opened after being created}
+\item{open}{Should the file be opened after being created}
 
-\item{...}{arguments to be passed to \link[usethis]{use_template}}
+\item{...}{Arguments to be passed to \link[usethis]{use_template}}
 }
 \description{
 Use the skeleton.Rmd for starting analysis. This function creates a new folder "rmd" at root of project and create an rmd file with nice-looking template there.
 }
 \examples{
 \dontrun{
-neartools::get_pretty_template(name = "Reply to Prof")
+ neartools::get_pretty_template(subDir = 'Enquiry/SNAC',name = "missing_value_problems",output_file = "word")
 }
 
 }
