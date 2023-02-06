@@ -4,12 +4,14 @@
 \alias{export_sav_to_csv}
 \title{Export the SPSS data files to csv files}
 \usage{
-export_sav_to_csv(data_folder_name, db_name)
+export_sav_to_csv(data_folder_name, db_name, out_dir = NULL)
 }
 \arguments{
 \item{data_folder_name}{The name of the folder where all the data are being stored.}
 
 \item{db_name}{The name of specific database's folder, which is located in `data_folder_name`.}
+
+\item{out_dir}{optional. The name of the output directory, instead of using <data_folder_name>/<db_name>/csv_format.}
 }
 \value{
 A folder called "csv_format" will be generated in the 'db_name's folder, storing all the transformed csv files.
