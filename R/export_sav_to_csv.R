@@ -23,7 +23,7 @@
 #' @importFrom utils write.csv
 #' @importFrom haven read_sav
 #' @importFrom here here
-#'
+#' @importFrom glue glue
 #'
 #' @examples
 #' \dontrun{
@@ -48,16 +48,25 @@ export_sav_to_csv <- function(data_folder_name, db_name, out_dir=NULL) {
   # use file.path to create a file path that is compatible on different OS.
   if(!is.null(out_dir)){
     output_dir <- out_dir
+
+    if (!dir.exists(output_dir)) {
+      # create a folder to store the transformed csv format files
+      dir.create(output_dir)
+    } else {
+      warning(glue("output_dir {output_dir} already exists!"))
+    }
   }else{
     output_dir <- file.path(data_folder_name, db_name, "csv_format")
+
+    if (!dir.exists(output_dir)) {
+      # create a folder to store the transformed csv format files
+      dir.create(output_dir)
+    } else {
+      warning("'csv_format' folder already exists!")
+    }
   }
 
-  if (!dir.exists(output_dir)) {
-    # create a folder to store the transformed csv format files
-    dir.create(output_dir)
-  } else {
-    warning("'csv_format' folder already exists!")
-  }
+
 
   for (i in 1:length(tb_name)) {
     # data = read_sav(paste0(data_folder_name,'/',db_name,'/',tb_name[i]))
