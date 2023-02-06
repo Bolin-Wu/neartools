@@ -13,7 +13,7 @@ get_pretty_template(
 )
 }
 \arguments{
-\item{name}{Name of rmd file. Please do not use "/" in the the file name. (no need to add suffix ".Rmd")}
+\item{name}{Name of rmd file. Please do not use '/' in the the file name. (no need to add suffix ".Rmd")}
 
 \item{subDir}{Name of the folder where rmd file will be created. By default it is 'rmd'. Remember to connect sub-dir names with '/'.}
 

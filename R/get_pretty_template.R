@@ -1,6 +1,6 @@
 #' @title get_pretty_template
 #' @description Use the skeleton.Rmd for starting analysis. This function creates a new folder "rmd" at root of project and create an rmd file with nice-looking template there.
-#' @param name Name of rmd file. Please do not use "/" in the the file name. (no need to add suffix ".Rmd")
+#' @param name Name of rmd file. Please do not use '/' in the the file name. (no need to add suffix ".Rmd")
 #' @param subDir Name of the folder where rmd file will be created. By default it is 'rmd'. Remember to connect sub-dir names with '/'.
 #' @param open Should the file be opened after being created
 #' @param output_file "word" or "html", by default it is "html"
