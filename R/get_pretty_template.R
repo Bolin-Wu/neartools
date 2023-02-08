@@ -35,7 +35,7 @@ get_pretty_template <-
 
     # usethis::use_package("usethis")
     if (output_file == "html") {
-      usethis::use_template("skeleton.Rmd",
+      usethis::use_template("skeleton_html.Rmd",
         save_as = paste0(subDir, "/",name),
         data = list(),
         package = "neartools", ..., open = open

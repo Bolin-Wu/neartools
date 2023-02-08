@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_label_df.R
 \name{get_label_df}
 \alias{get_label_df}
-\title{Get labels from a dataset}
+\title{Get labels of a dataset}
 \usage{
 get_label_df(df_w_label)
 }

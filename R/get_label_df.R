@@ -1,4 +1,4 @@
-#' Get labels from a dataset
+#' Get labels of a dataset
 #'
 #' During work, many times we receive SPSS or STATA data files with labels. This function is to extract the labels from the read-in data, turn them in tibble format.
 #' This can help us to inspect data more conveniently.
