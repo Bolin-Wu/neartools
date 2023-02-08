@@ -40,6 +40,7 @@ get_na_number <- function(data_df, label_df = NULL, keywords_label = NULL, keywo
   }
 
   label_char <- colnames(label_df)[2]
+  variable <- colnames(label_df)[1]
   # only label key words available
   if (!is.null(keywords_label) & is.null(keywords_variable)) {
     message("Search for label key words: ", keywords_label)
