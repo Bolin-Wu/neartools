@@ -1,4 +1,4 @@
-#' Get NA number of a dataset
+#' Get NA counts of a dataset
 #'
 #' Given the data set and its label data frame, user can search for number of NA with strings in the variable names or labels.
 #'
@@ -29,7 +29,7 @@
 #' }
 #'
 get_na_number <- function(data_df, label_df = NULL, keywords_label = NULL, keywords_variable = NULL) {
-  # label_df is a result from the label_tiff above
+  # label_df is a result from the get_label_df() function
   # give error if both keywords arguments are NULL.
   if (is.null(keywords_label) & is.null(keywords_variable)) {
     stop("Please input keywards for label or variables." )
