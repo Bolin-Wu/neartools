@@ -68,23 +68,17 @@
 <p>The goal of this package is to practice the “don’t repeat yourself” (DRY) principle, making the daily work more handy.</p>
 </div>
 <div class="section level1">
-<h1 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+<h1 id="tools">Tools<a class="anchor" aria-label="anchor" href="#tools"></a>
 </h1>
 <p>This package contains functions as follows:</p>
 <ul>
-<li><p><code>get_label_df</code>: Get the labels from a dataframe.</p></li>
-<li><p><code>get_pretty_template</code>: Automatically create an ‘rmd’ folder, create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
+<li><p><code>get_label_df</code>: Get the labels of a dataframe. By filtering on the result, the users can quickly select the interested variables.</p></li>
+<li><p><code>get_na_number</code>: An extension of <code><a href="reference/get_label_df.html">get_label_df()</a></code>. It counts the number of NAs given a string snippet of variable or label names. It is useful to inspect the variables with unexpected number of NAs.</p></li>
+<li><p><code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
 For more information about R markdown please see <a href="https://rmarkdown.rstudio.com" class="external-link">here</a>.</p></li>
-<li>
-<p><code>fix_dup_id</code>: Check the ID duplication. It gives a list with examination results.</p>
-<ul>
-<li>If a dataframe has replicated IDs or not. If yes:</li>
-<li>Specific replicated ID. May need to report them to local DBM to double check those IDs.</li>
-<li>A new distinct ID. E.g, for both people with ID = 2, the new ID are 2.0, 2.1, etc. It is appended before original ID column. <strong>This new ID creation is not a recommended solution.</strong> It is just a temporary instrument for further other works, e.g. importing data to SQL database.</li>
-</ul>
-</li>
+<li><p><code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</p></li>
 <li><p><code>export_sav_to_csv</code>: Convert all the SPSS data files (<em>.sav</em>) to csv files. This conversion is needed because the maelstrom harmonization package does not read <em>.sav</em> data. This function can prevent repetitive work of converting <em>.sav</em> to <em>.csv</em> one by one.</p></li>
-<li><p><code>import_bulk</code>: Bulk import SPSS, STATA and MS Excel files in a folder to R global environment.</p></li>
+<li><p><code>import_bulk</code>: Bulk import SPSS, STATA and MS Excel files to R global environment.</p></li>
 <li><p><em>To be continued….</em></p></li>
 </ul>
 <div class="section level2">
