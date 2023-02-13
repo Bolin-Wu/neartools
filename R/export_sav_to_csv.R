@@ -1,4 +1,4 @@
-#' Transform the SPSS data files to csv files
+#' Export the SPSS data files to csv files
 #'
 #' In Maelstrom harmonization package, there is a command 'mlstr_file_index_read()' to read all the study specific data sets.
 #' It can read commonly used .csv, .dta files, but not .sav (SPSS) data.
@@ -26,7 +26,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' sav_to_sav("original_data", "SNAC_K")
+#' export_sav_to_csv("original_data", "SNAC_K")
 #' }
 #'
 #' @export
@@ -35,14 +35,14 @@
 #'
 #'
 
-sav_to_csv <- function(data_folder_name, db_name) {
-  # use file.path to create a file path that is compatible on different OS.
-  db_dir <- here(data_folder_name, db_name)
+export_sav_to_csv <- function(data_folder_name, db_name) {
+  db_dir <- here::here(data_folder_name, db_name)
   tb_name <- list.files(path = db_dir, pattern = "\\.sav$")
   # get rid of .sav extension when writing the csv file
   clean_name <- file_path_sans_ext(tb_name)
   # replace space with underscore
   clean_name <- gsub(" ", "_", clean_name)
+  # use file.path to create a file path that is compatible on different OS.
   output_dir <- file.path(data_folder_name, db_name, "csv_format")
 
   if (!dir.exists(output_dir)) {

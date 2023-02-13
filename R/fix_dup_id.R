@@ -2,9 +2,10 @@
 #'
 #' In NEAR, we use ID (lopnr) to identify a specific participant. If two people share the same ID, there must be a problem.
 #' This function is used to:
-#' * Check if a data file has replicated ID.
-#' * If there is replicated id, find out which IDs are replicated. Generate new distinct new id & append it before the original ID column.
-#'
+#' \itemize{
+#'   \item Check if a data file has replicated ID.
+#'   \item If there is replicated id, find out which IDs are replicated. Generate new distinct new id & append it before the original ID column.
+#' }
 #' The new ID can be temporarily used as primary key when importing data to MySQL.
 #'
 #' @param df A tibble to be examined.
@@ -27,10 +28,11 @@
 #'
 #' @examples
 #' \dontrun{
-#' neartools::fix_dup_id(baseline_example_Relative_220504, "lopnr")$logic_rep
+#' neartools::fix_dup_id(df_fix_dup_id, id_str = 'id')
 #' }
 #'
 fix_dup_id <- function(df, id_str) {
+  Freq <- NULL # make 'Freq' to be a function specific variable.
   df_name <- deparse(substitute(df))
   df_colnames <- colnames(df)
   # check the existance of id_str
@@ -45,6 +47,10 @@ fix_dup_id <- function(df, id_str) {
   # select the column of id
   id_nr <- df_colnames[check_id_str]
 
+  if (any(is.na(df[[id_nr]]))) {
+    stop("There is NA in ID column.")
+  }
+
   if (length(unique(df[[id_nr]])) == length(df[[id_nr]])) {
     stop("There is no duplicated id!")
   } else {
@@ -53,9 +59,10 @@ fix_dup_id <- function(df, id_str) {
   # freq table of column contains "lopnr"
   n_occur <- data.frame(table(
     df %>%
-      select(id_nr)
+      select(all_of(id_nr))
   ))
   colnames(n_occur) <- c("id", "Freq")
+
   # filter out replicated id
   freq_tab <- n_occur[n_occur$Freq > 1, ]
   # find the replicated id

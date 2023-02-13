@@ -1,8 +1,6 @@
 ---
 title: "Template"
-author:
-  - name: "Your Name"
-    affiliation: "Your company/university"
+author: "Your Name"
 date: 'YYYY-MM-DD (updated: `r Sys.Date()`) '
 output:
   word_document:
@@ -13,7 +11,7 @@ urlcolor: blue
 
 ```{r setup, include=FALSE}
 # By default, all codes are hidden.
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, include = FALSE, comment = NA, ft_max_row = 6, tab.topcaption = FALSE, ft.align = "left")
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, include = FALSE, comment = NA, ft_max_row = 6, tab.topcaption = TRUE, ft.align = "left")
 library(haven)
 library(knitr)
 library(tidyverse)
@@ -25,10 +23,10 @@ set_flextable_defaults(font.size = 11, padding = 3)
 ```
 
 # Flextable
-`flextable` is a useful package for printing tables for *word* file output. It is similar to `kable()`.
+`flextable` is a useful package for printing tables for **word** file output. It is similar to `kable()`.
 
 
-If one wants to make tables by loop:
+If one wants to generate tables by loop:
 
 ```{r, include=TRUE, echo=FALSE, results='asis'}
 for (i in 1:10) {
@@ -41,4 +39,4 @@ for (i in 1:10) {
 }
 ```
 
-Please note that the result has to be set to 'asis'.
+This could be useful when one needs to do repetitive work, e.g. printing siginificant variables from `lm()` function. Please note that the result has to be set to 'asis'.

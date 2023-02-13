@@ -2,8 +2,8 @@ Package: neartools
 Type: Package
 Title: Useful Tools for Daily NEAR Work Tasks
 Version: 0.1.0
-Author: Bolin Wu
-Maintainer: Bolin Wu <bolin.wu@ki.se>
+Authors@R: person("Bolin", "Wu", email = "bolin.wu1026@gmail.com",
+  role = c("aut", "cre"))
 Description: Practice the DRY principle.
     The goal of this project is to make the daily repetitive work easier.
 License: MIT + file LICENSE
@@ -14,7 +14,7 @@ URL: https://github.com/Bolin-Wu/neartools,
 BugReports: https://github.com/Bolin-Wu/neartools/issues
 RoxygenNote: 7.2.1
 Imports: 
-    dplyr,
+    dplyr (>= 1.0.8),
     haven,
     here,
     magrittr,
@@ -22,10 +22,14 @@ Imports:
     tools,
     usethis,
     utils,
-    stringr
+    stringr,
+    sjlabelled,
+    readxl
 Suggests: 
-    covr,
     rmarkdown,
     roxygen2,
     rmdformats,
-    flextable
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
