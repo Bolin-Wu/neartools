@@ -2,7 +2,7 @@
 #'
 #' A data frame to test the \code{fix_dup_id} function in package.
 #'
-#' @format A data frame with 2 variables: \code{id}, \code{num},
+#' @format A data frame with 2 variables: \code{id}, \code{num}.
 "df_fix_dup_id"
 
 

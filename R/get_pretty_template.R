@@ -1,7 +1,7 @@
 #' @title get_pretty_template
-#' @description Use the skeleton.Rmd for starting analysis. This function creates a new folder "rmd" at root of project and create an rmd file with nice-looking template there.
-#' @param name Name of rmd file. (no need to add suffix ".Rmd")
-#' @param subDir Name of the folder where rmd file will be created. By default it is 'rmd'. Remember to connect sub-dir names with '/'.
+#' @description Use rmd templates to start analysis in R. More specifically, it creates a new folder at root of project and create a nice-looking template there.
+#' @param name Name of rmd file. Please do not use '/' in the the file name (no need to add suffix ".Rmd").
+#' @param subDir Name of the folder where rmd file will be created. Remember to connect sub-dir names with '/'. By default it is 'rmd'.
 #' @param open Should the file be opened after being created
 #' @param output_file "word" or "html", by default it is "html"
 #' @param ... Arguments to be passed to \link[usethis]{use_template}
@@ -35,7 +35,7 @@ get_pretty_template <-
 
     # usethis::use_package("usethis")
     if (output_file == "html") {
-      usethis::use_template("skeleton.Rmd",
+      usethis::use_template("skeleton_html.Rmd",
         save_as = paste0(subDir, "/",name),
         data = list(),
         package = "neartools", ..., open = open
