@@ -13,9 +13,9 @@ get_pretty_template(
 )
 }
 \arguments{
-\item{name}{Name of rmd file. (no need to add suffix ".Rmd")}
+\item{name}{Name of rmd file. Please do not use '/' in the the file name. (no need to add suffix ".Rmd")}
 
-\item{subDir}{Name of the folder where rmd file will be created. By default it is 'rmd'. Remember to connect sub-dir names with '/'.}
+\item{subDir}{Name of the folder where rmd file will be created. Remember to connect sub-dir names with '/'. By default it is 'rmd'.}
 
 \item{output_file}{"word" or "html", by default it is "html"}
 
@@ -24,7 +24,7 @@ get_pretty_template(
 \item{...}{Arguments to be passed to \link[usethis]{use_template}}
 }
 \description{
-Use the skeleton.Rmd for starting analysis. This function creates a new folder "rmd" at root of project and create an rmd file with nice-looking template there.
+Use the skeleton.Rmd for starting analysis. This function creates a new folder at root of project and create an rmd file with nice-looking template there.
 }
 \examples{
 \dontrun{

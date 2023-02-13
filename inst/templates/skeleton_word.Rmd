@@ -11,7 +11,7 @@ urlcolor: blue
 
 ```{r setup, include=FALSE}
 # By default, all codes are hidden.
-knitr::opts_chunk$set(message = FALSE, warning = FALSE, include = FALSE, comment = NA, ft_max_row = 6, tab.topcaption = FALSE, ft.align = "left")
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, include = FALSE, comment = NA, ft_max_row = 6, tab.topcaption = TRUE, ft.align = "left")
 library(haven)
 library(knitr)
 library(tidyverse)

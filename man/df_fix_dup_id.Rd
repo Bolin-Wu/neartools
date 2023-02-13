@@ -5,7 +5,7 @@
 \alias{df_fix_dup_id}
 \title{Example data frame}
 \format{
-A data frame with 2 variables: \code{id}, \code{num},
+A data frame with 2 variables: \code{id}, \code{num}.
 }
 \usage{
 df_fix_dup_id
