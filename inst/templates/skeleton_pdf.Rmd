@@ -1,0 +1,51 @@
+---
+title: "Template"
+author:
+- Author One
+- Author Two
+date: 'YYYY-MM-DD (updated: `r Sys.Date()`) '
+output:
+  pdf_document: 
+    toc: true
+    toc_depth: 2
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+# By default, all codes are hidden.
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, include = TRUE, echo = FALSE, eval = TRUE, comment = NA, tab.topcaption = TRUE)
+library(haven)
+library(knitr)
+library(tidyverse)
+library(here)
+library(flextable)
+set_flextable_defaults(font.size = 11, padding = 3)
+# use_df_printer()
+```
+
+More options yaml please see posts here: https://rstudio.github.io/distill/basics.html
+
+
+# Table
+`flextable` is a useful package for printing tables for **word** file output. It is similar to `kable()`.
+
+
+If one wants to generate tables by loop:
+
+```{r, include=TRUE, echo=FALSE, results='asis'}
+db = "GENDER"
+for (i in 1:10) {
+  cat("Table: ", i)
+  ft <- flextable(cars[i, ])
+  caption_name <- paste0("Print row: ", i)
+  ft <- set_caption(ft, caption_name)
+  ft <- theme_vanilla(ft)
+  ft <- add_footer_lines(ft, paste0("The database is: ", db))
+  ft <- color(ft, part = "footer", color = "#666666")
+  ft <- autofit(ft)
+
+  flextable_to_rmd(ft)
+}
+```
+
+This could be useful when one needs to do repetitive work, e.g. printing siginificant variables from `lm()` function. Please note that the result has to be set to 'asis'.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_na_number.R
 \name{get_na_number}
 \alias{get_na_number}
-\title{Get NA number of a dataset}
+\title{Get NA counts of a dataset}
 \usage{
 get_na_number(
   data_df,
@@ -31,7 +31,10 @@ The \code{grepl()} function is doing the search for the two keywards arguments.
 }
 \examples{
 \dontrun{
+
+# create label dataframe from original data set
 label_df <- get_label_df(fake_snack_df)
+
 # search by label
 get_na_number(data_df = fake_snack_df, label_df = label_df, keywords_label = "dementia")
 
