@@ -24,7 +24,8 @@ Imports:
     utils,
     stringr,
     sjlabelled,
-    readxl
+    readxl,
+    glue
 Suggests: 
     rmarkdown,
     roxygen2,

@@ -50,7 +50,7 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
   }
-  if (!file_type %in% c("all", "sav", "dta", "csv","xlsx")) {
+  if (!file_type %in% c("all", "sav", "dta", "csv", "xlsx")) {
     stop("Invalid file type. It has to be one of 'all','sav', 'dta', 'csv','xlsx'.")
   }
   if (file_type == "sav") {
@@ -93,8 +93,8 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
       )
     } else if (grepl(".*xlsx$", tb_name[i])) {
       assign(clean_name[i],
-             read_excel(here(data_dir, tb_name[i]), sheet = 1),
-             envir = .GlobalEnv
+        read_excel(here(data_dir, tb_name[i]), sheet = 1),
+        envir = .GlobalEnv
       )
     }
   }

@@ -28,7 +28,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' neartools::fix_dup_id(df_fix_dup_id, id_str = 'id')
+#' neartools::fix_dup_id(df_fix_dup_id, id_str = "id")
 #' }
 #'
 fix_dup_id <- function(df, id_str) {

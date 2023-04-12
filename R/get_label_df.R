@@ -13,7 +13,7 @@
 #' \dontrun{
 #' get_label_df(fake_snack_df)
 #' }
-
+#'
 get_label_df <- function(df_w_label) {
   message("The input df is: ", df_w_label)
   label_char <- sjlabelled::get_label(df_w_label)

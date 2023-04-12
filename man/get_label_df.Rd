@@ -20,4 +20,5 @@ This can help us to inspect data more conveniently.
 \dontrun{
 get_label_df(fake_snack_df)
 }
+
 }

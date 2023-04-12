@@ -10,6 +10,8 @@
 #' @return A list of related variables and their NA counts.
 #' @details The \code{grepl()} function is doing the search for the two keywards arguments.
 #'
+#' @seealso neartools::get_label_df
+#'
 #' @export
 #'
 #' @importFrom magrittr %>%
@@ -32,7 +34,7 @@ get_na_number <- function(data_df, label_df = NULL, keywords_label = NULL, keywo
   # label_df is a result from the get_label_df() function
   # give error if both keywords arguments are NULL.
   if (is.null(keywords_label) & is.null(keywords_variable)) {
-    stop("Please input keywards for label or variables." )
+    stop("Please input keywards for label or variables.")
   }
 
   if (is.null(label_df)) {
