@@ -4,7 +4,13 @@
 \alias{get_date_digit}
 \title{Inspect the a date column's digit}
 \usage{
-get_date_digit(df_arg, id_string, date_string, required_digits)
+get_date_digit(
+  df_arg,
+  id_string,
+  date_string,
+  required_digits,
+  required_leading_num = 2
+)
 }
 \arguments{
 \item{df_arg}{Input data frame.}
@@ -19,6 +25,7 @@ get_date_digit(df_arg, id_string, date_string, required_digits)
 A lit with two elements:
   \item{count_digit}{A tibble of ID, date and date's digits.}
   \item{wrong_digit}{A tibble of dates that do not have required digits.}
+  \item{leading_digit}{A tibble of dates with required digits and their leading number.}
 }
 \description{
 When we received files with date variables, sometimes they are not in good 'date' format. Instead, they might be in pure numeric values with different digits.
@@ -27,6 +34,7 @@ This function aims to make such inspection easier.
 }
 \details{
 Given a data frame, strings containing ID and date columns' name, and required digits, users can find the observations with wrong digits.
+For the dates with required digits, we can further check if they have required numbers, which in most cases should be "1" or "2" for eight-digit numbers.
 
 The \code{date_string} argument should lead to a unique date column. This function only supports inspect one date column at one time.
 }
@@ -36,13 +44,16 @@ The \code{date_string} argument should lead to a unique date column. This functi
 date_digit_info = get_date_digit(df_arg = fake_snack_df,
 id_string = "Lop",
 date_string = "numeric_date",
-required_digits = 8)
+required_digits = 8, required_leading_num = 2)
 
 # get the digits
 date_digit_info$count_digit
 
 # get the wrong dates
 date_digit_info$wrong_digit
+
+# check if the leading number is as required
+date_digit_info$leading_digit
 
 }
 

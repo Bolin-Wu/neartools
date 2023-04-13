@@ -21,7 +21,7 @@ The goal of this package is to practice the “don’t repeat yourself”
 
 This package contains functions as follows:
 
--   `get_label_df`: Get the labels of a dataframe. By filtering on the
+-   `get_label_df`: Get the labels of a data frame. By filtering on the
     result, the users can quickly select the interested variables.
 
 -   `get_na_number`: **An extension of `get_label_df()`**. It counts the
@@ -35,8 +35,8 @@ This package contains functions as follows:
     For more information about R markdown please see
     [here](https://rmarkdown.rstudio.com).
 
--   `get_date_digit`: Get a date column’s digit and find dates not
-    having required digits.
+-   `get_date_digit`: Inspect date in numeric digit form. Find dates not
+    having required form.
 
 -   `fix_dup_id`: Check existence of ID duplication and pinpoint them.
 
@@ -72,10 +72,11 @@ library(neartools)
 get_label_df(df_w_label = fake_snack_df)
 
 # get the date digits and find wrong ones
-get_date_digit(df_arg = fake_snack_df, 
-               id_string = "Lop", 
-               date_string = "numeric_date", 
-               required_digits = 8)
+get_date_digit(df_arg = fake_snack_df,
+               id_string = "Lop",
+               date_string = "numeric_date",
+               required_digits = 8, 
+               required_leading_num = 1)
 
 # get NA counts from label data frame above
 label_df <- get_label_df(fake_snack_df)

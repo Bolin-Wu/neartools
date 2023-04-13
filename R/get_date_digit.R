@@ -11,16 +11,19 @@
 #' @param required_digits The expected date's digit.
 #'
 #' @details Given a data frame, strings containing ID and date columns' name, and required digits, users can find the observations with wrong digits.
+#' For the dates with required digits, we can further check if they have required numbers, which in most cases should be "1" or "2" for eight-digit numbers.
 #'
 #' The \code{date_string} argument should lead to a unique date column. This function only supports inspect one date column at one time.
 #'
 #'
 #' @import tibble
 #' @importFrom magrittr %>%
+#' @importFrom stringr str_sub
 #' @importFrom glue glue
 #' @return A lit with two elements:
 #'   \item{count_digit}{A tibble of ID, date and date's digits.}
 #'   \item{wrong_digit}{A tibble of dates that do not have required digits.}
+#'   \item{leading_digit}{A tibble of dates with required digits and their leading number.}
 #'
 #' @export
 #'
@@ -30,7 +33,7 @@
 #' date_digit_info = get_date_digit(df_arg = fake_snack_df,
 #' id_string = "Lop",
 #' date_string = "numeric_date",
-#' required_digits = 8)
+#' required_digits = 8, required_leading_num = 2)
 #'
 #' # get the digits
 #' date_digit_info$count_digit
@@ -38,9 +41,12 @@
 #' # get the wrong dates
 #' date_digit_info$wrong_digit
 #'
+#' # check if the leading number is as required
+#' date_digit_info$leading_digit
+#'
 #' }
 #'
-get_date_digit <- function(df_arg, id_string, date_string, required_digits) {
+get_date_digit <- function(df_arg, id_string, date_string, required_digits, required_leading_num = 2) {
   if (is_tibble(df_arg)) {
     message(glue::glue("Checking the dataframe: {deparse(substitute(df_arg))}"))
     df <- df_arg
@@ -63,8 +69,13 @@ get_date_digit <- function(df_arg, id_string, date_string, required_digits) {
     mutate(digits_count = nchar(as.character(.[[2]])))
   df_wrong_digit <- df_digit %>%
     filter(digits_count != required_digits)
+  df_leading_digit = df_digit  %>%
+    filter(digits_count == {{required_digits}} ) %>%
+    mutate(first_digit = as.character(.[[2]]) %>% str_sub(1,1),
+           required_first_digit = first_digit == {{required_leading_num}})
   return(list(
     count_digit = df_digit,
-    wrong_digit = df_wrong_digit
+    wrong_digit = df_wrong_digit,
+    leading_digit = df_leading_digit
   ))
 }
