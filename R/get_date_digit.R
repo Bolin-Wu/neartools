@@ -8,7 +8,7 @@
 #' @param df_arg Input data frame.
 #' @param id_string A string contained in ID's column name.
 #' @param date_string A string contained in date's column name.
-#' @param required_digits The expected date's digit.
+#' @param required_digits The expected date's digit. Ideally it should be 8, i.e. yyyymmdd.
 #' @param required_leading_digit The expected date's leading digit.
 #'
 #' @details Given a data frame, strings containing ID and date columns' name, and required digits, users can find the observations with wrong digits.
