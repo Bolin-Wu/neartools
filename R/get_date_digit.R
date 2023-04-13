@@ -73,7 +73,7 @@ get_date_digit <- function(df_arg, id_string, date_string, required_digits, requ
   df_leading_digit = df_digit  %>%
     filter(digits_count == {{required_digits}} ) %>%
     mutate(first_digit = as.character(.[[2]]) %>% str_sub(1,1),
-           required_first_digit = first_digit == {{required_leading_num}})
+           required_first_digit = first_digit == {{required_leading_digit}})
   return(list(
     count_digit = df_digit,
     wrong_digit = df_wrong_digit,

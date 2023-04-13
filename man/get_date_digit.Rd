@@ -19,7 +19,7 @@ get_date_digit(
 
 \item{date_string}{A string contained in date's column name.}
 
-\item{required_digits}{The expected date's digit.}
+\item{required_digits}{The expected date's digit. Ideally it should be 8, i.e. yyyymmdd.}
 
 \item{required_leading_digit}{The expected date's leading digit.}
 }
