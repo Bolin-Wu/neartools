@@ -9,6 +9,7 @@
 #' @param id_string A string contained in ID's column name.
 #' @param date_string A string contained in date's column name.
 #' @param required_digits The expected date's digit.
+#' @param required_leading_digit The expected date's leading digit.
 #'
 #' @details Given a data frame, strings containing ID and date columns' name, and required digits, users can find the observations with wrong digits.
 #' For the dates with required digits, we can further check if they have required numbers, which in most cases should be "1" or "2" for eight-digit numbers.
@@ -33,7 +34,7 @@
 #' date_digit_info = get_date_digit(df_arg = fake_snack_df,
 #' id_string = "Lop",
 #' date_string = "numeric_date",
-#' required_digits = 8, required_leading_num = 2)
+#' required_digits = 8, required_leading_digit = 2)
 #'
 #' # get the digits
 #' date_digit_info$count_digit
@@ -46,7 +47,7 @@
 #'
 #' }
 #'
-get_date_digit <- function(df_arg, id_string, date_string, required_digits, required_leading_num = 2) {
+get_date_digit <- function(df_arg, id_string, date_string, required_digits, required_leading_digit = 2) {
   if (is_tibble(df_arg)) {
     message(glue::glue("Checking the dataframe: {deparse(substitute(df_arg))}"))
     df <- df_arg

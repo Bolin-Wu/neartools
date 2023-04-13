@@ -9,7 +9,7 @@ get_date_digit(
   id_string,
   date_string,
   required_digits,
-  required_leading_num = 2
+  required_leading_digit = 2
 )
 }
 \arguments{
@@ -20,6 +20,8 @@ get_date_digit(
 \item{date_string}{A string contained in date's column name.}
 
 \item{required_digits}{The expected date's digit.}
+
+\item{required_leading_digit}{The expected date's leading digit.}
 }
 \value{
 A lit with two elements:
@@ -44,7 +46,7 @@ The \code{date_string} argument should lead to a unique date column. This functi
 date_digit_info = get_date_digit(df_arg = fake_snack_df,
 id_string = "Lop",
 date_string = "numeric_date",
-required_digits = 8, required_leading_num = 2)
+required_digits = 8, required_leading_digit = 2)
 
 # get the digits
 date_digit_info$count_digit
