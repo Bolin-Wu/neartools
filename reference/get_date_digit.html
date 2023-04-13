@@ -59,7 +59,7 @@ This function aims to make such inspection easier.</p>
 <span>  <span class="va">id_string</span>,</span>
 <span>  <span class="va">date_string</span>,</span>
 <span>  <span class="va">required_digits</span>,</span>
-<span>  required_leading_num <span class="op">=</span> <span class="fl">2</span></span>
+<span>  required_leading_digit <span class="op">=</span> <span class="fl">2</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -79,6 +79,10 @@ This function aims to make such inspection easier.</p>
 
 <dt>required_digits</dt>
 <dd><p>The expected date's digit.</p></dd>
+
+
+<dt>required_leading_digit</dt>
+<dd><p>The expected date's leading digit.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -110,7 +114,7 @@ For the dates with required digits, we can further check if they have required n
 <span class="r-in"><span><span class="va">date_digit_info</span> <span class="op">=</span> <span class="fu">get_date_digit</span><span class="op">(</span>df_arg <span class="op">=</span> <span class="va">fake_snack_df</span>,</span></span>
 <span class="r-in"><span>id_string <span class="op">=</span> <span class="st">"Lop"</span>,</span></span>
 <span class="r-in"><span>date_string <span class="op">=</span> <span class="st">"numeric_date"</span>,</span></span>
-<span class="r-in"><span>required_digits <span class="op">=</span> <span class="fl">8</span>, required_leading_num <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span>required_digits <span class="op">=</span> <span class="fl">8</span>, required_leading_digit <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get the digits</span></span></span>
 <span class="r-in"><span><span class="va">date_digit_info</span><span class="op">$</span><span class="va">count_digit</span></span></span>
