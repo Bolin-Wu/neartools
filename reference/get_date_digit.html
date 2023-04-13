@@ -54,7 +54,13 @@ This function aims to make such inspection easier.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_date_digit</span><span class="op">(</span><span class="va">df_arg</span>, <span class="va">id_string</span>, <span class="va">date_string</span>, <span class="va">required_digits</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_date_digit</span><span class="op">(</span></span>
+<span>  <span class="va">df_arg</span>,</span>
+<span>  <span class="va">id_string</span>,</span>
+<span>  <span class="va">date_string</span>,</span>
+<span>  <span class="va">required_digits</span>,</span>
+<span>  required_leading_num <span class="op">=</span> <span class="fl">2</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -86,10 +92,14 @@ This function aims to make such inspection easier.</p>
   <dt>wrong_digit</dt>
 <dd><p>A tibble of dates that do not have required digits.</p></dd>
 
+  <dt>leading_digit</dt>
+<dd><p>A tibble of dates with required digits and their leading number.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Given a data frame, strings containing ID and date columns' name, and required digits, users can find the observations with wrong digits.</p>
+    <p>Given a data frame, strings containing ID and date columns' name, and required digits, users can find the observations with wrong digits.
+For the dates with required digits, we can further check if they have required numbers, which in most cases should be "1" or "2" for eight-digit numbers.</p>
 <p>The <code>date_string</code> argument should lead to a unique date column. This function only supports inspect one date column at one time.</p>
     </div>
 
@@ -100,13 +110,16 @@ This function aims to make such inspection easier.</p>
 <span class="r-in"><span><span class="va">date_digit_info</span> <span class="op">=</span> <span class="fu">get_date_digit</span><span class="op">(</span>df_arg <span class="op">=</span> <span class="va">fake_snack_df</span>,</span></span>
 <span class="r-in"><span>id_string <span class="op">=</span> <span class="st">"Lop"</span>,</span></span>
 <span class="r-in"><span>date_string <span class="op">=</span> <span class="st">"numeric_date"</span>,</span></span>
-<span class="r-in"><span>required_digits <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></span>
+<span class="r-in"><span>required_digits <span class="op">=</span> <span class="fl">8</span>, required_leading_num <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get the digits</span></span></span>
 <span class="r-in"><span><span class="va">date_digit_info</span><span class="op">$</span><span class="va">count_digit</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get the wrong dates</span></span></span>
 <span class="r-in"><span><span class="va">date_digit_info</span><span class="op">$</span><span class="va">wrong_digit</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># check if the leading number is as required</span></span></span>
+<span class="r-in"><span><span class="va">date_digit_info</span><span class="op">$</span><span class="va">leading_digit</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>

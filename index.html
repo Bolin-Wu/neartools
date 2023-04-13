@@ -72,11 +72,11 @@
 </h1>
 <p>This package contains functions as follows:</p>
 <ul>
-<li><p><code>get_label_df</code>: Get the labels of a dataframe. By filtering on the result, the users can quickly select the interested variables.</p></li>
+<li><p><code>get_label_df</code>: Get the labels of a data frame. By filtering on the result, the users can quickly select the interested variables.</p></li>
 <li><p><code>get_na_number</code>: <strong>An extension of <code><a href="reference/get_label_df.html">get_label_df()</a></code></strong>. It counts the number of NAs given a string snippet of variable or label names. It is useful to inspect the variables with unexpected number of NAs.</p></li>
 <li><p><code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
 For more information about R markdown please see <a href="https://rmarkdown.rstudio.com" class="external-link">here</a>.</p></li>
-<li><p><code>get_date_digit</code>: Get a date column’s digit and find dates not having required digits.</p></li>
+<li><p><code>get_date_digit</code>: Inspect date in numeric digit form. Find dates not having required form.</p></li>
 <li><p><code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</p></li>
 <li><p><code>export_sav_to_csv</code>: Convert all the SPSS data files (<em>.sav</em>) to csv files. This conversion is needed because the maelstrom harmonization package does not read <em>.sav</em> data. This function can prevent repetitive work of converting <em>.sav</em> to <em>.csv</em> one by one.</p></li>
 <li><p><code>import_bulk</code>: Bulk import SPSS, STATA and MS Excel files to R global environment.</p></li>
@@ -104,10 +104,11 @@ For more information about R markdown please see <a href="https://rmarkdown.rstu
 <span><span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span>df_w_label <span class="op">=</span> <span class="va">fake_snack_df</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># get the date digits and find wrong ones</span></span>
-<span><span class="fu"><a href="reference/get_date_digit.html">get_date_digit</a></span><span class="op">(</span>df_arg <span class="op">=</span> <span class="va">fake_snack_df</span>, </span>
-<span>               id_string <span class="op">=</span> <span class="st">"Lop"</span>, </span>
-<span>               date_string <span class="op">=</span> <span class="st">"numeric_date"</span>, </span>
-<span>               required_digits <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/get_date_digit.html">get_date_digit</a></span><span class="op">(</span>df_arg <span class="op">=</span> <span class="va">fake_snack_df</span>,</span>
+<span>               id_string <span class="op">=</span> <span class="st">"Lop"</span>,</span>
+<span>               date_string <span class="op">=</span> <span class="st">"numeric_date"</span>,</span>
+<span>               required_digits <span class="op">=</span> <span class="fl">8</span>, </span>
+<span>               required_leading_num <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># get NA counts from label data frame above</span></span>
 <span><span class="va">label_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span><span class="va">fake_snack_df</span><span class="op">)</span></span>
