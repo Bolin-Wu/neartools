@@ -68,85 +68,106 @@
 <p>The goal of this package is to practice the “don’t repeat yourself” (DRY) principle, making the daily work more handy.</p>
 </div>
 <div class="section level1">
-<h1 id="tools">Tools<a class="anchor" aria-label="anchor" href="#tools"></a>
+<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h1>
-<p>This package contains functions as follows:</p>
-<ul>
-<li><p><code>get_label_df</code>: Get the labels of a data frame. By filtering on the result, the users can quickly select the interested variables.</p></li>
-<li><p><code>get_na_number</code>: <strong>An extension of <code><a href="reference/get_label_df.html">get_label_df()</a></code></strong>. It counts the number of NAs given a string snippet of variable or label names. It is useful to inspect the variables with unexpected number of NAs.</p></li>
-<li><p><code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
-For more information about R markdown please see <a href="https://rmarkdown.rstudio.com" class="external-link">here</a>.</p></li>
-<li><p><code>get_date_digit</code>: Inspect date in numeric digit form. Find dates not having required form.</p></li>
-<li><p><code>get_all_colnames</code>: Gather multiple interested data files and examine their columns together.</p></li>
-<li><p><code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</p></li>
-<li><p><code>export_sav_to_csv</code>: Convert all the SPSS data files (<em>.sav</em>) to csv files. This conversion is needed because the maelstrom harmonization package does not read <em>.sav</em> data. This function can prevent repetitive work of converting <em>.sav</em> to <em>.csv</em> one by one.</p></li>
-<li><p><code>import_bulk</code>: Bulk import SPSS, STATA and MS Excel files to R global environment.</p></li>
-<li><p><em>To be continued….</em></p></li>
-</ul>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
 <p>You can install the development version of neartools from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Bolin-Wu/neartools"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h2>
+<div class="section level1">
+<h1 id="tools">Tools<a class="anchor" aria-label="anchor" href="#tools"></a>
+</h1>
+<p>Example data</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># read data</span></span>
-<span><span class="va">fake_snack_df</span> <span class="op">&lt;-</span> <span class="fu">neartools</span><span class="fu">::</span><span class="va"><a href="reference/fake_snack_df.html">fake_snack_df</a></span></span>
-<span><span class="va">fake_caide_df</span> <span class="op">&lt;-</span> <span class="fu">neartools</span><span class="fu">::</span><span class="va"><a href="reference/fake_caide_df.html">fake_caide_df</a></span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Bolin-Wu/neartools" class="external-link">neartools</a></span><span class="op">)</span></span>
+<span><span class="co"># read data</span></span>
+<span><span class="va">fake_snack_df</span> <span class="op">&lt;-</span> <span class="va">fake_snack_df</span></span>
+<span><span class="va">fake_caide_df</span> <span class="op">&lt;-</span> <span class="va">fake_caide_df</span></span></code></pre></div>
+<p>This package contains functions as follows:</p>
 <div class="section level3">
 <h3 id="the-get-family">The <code>get</code> family<a class="anchor" aria-label="anchor" href="#the-get-family"></a>
 </h3>
+<ul>
+<li>
+<code>get_label_df</code>: Get the labels of a data frame. By filtering on the result, the users can quickly select the interested variables.</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># load the package</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Bolin-Wu/neartools" class="external-link">neartools</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># get the label of SPSS and STATA files imported in R</span></span>
-<span><span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span>df_w_label <span class="op">=</span> <span class="va">fake_snack_df</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># get the date digits and find wrong ones</span></span>
-<span><span class="fu"><a href="reference/get_date_digit.html">get_date_digit</a></span><span class="op">(</span>df_arg <span class="op">=</span> <span class="va">fake_snack_df</span>,</span>
-<span>               id_string <span class="op">=</span> <span class="st">"Lop"</span>,</span>
-<span>               date_string <span class="op">=</span> <span class="st">"numeric_date"</span>,</span>
-<span>               required_digits <span class="op">=</span> <span class="fl">8</span>, </span>
-<span>               required_leading_num <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># get NA counts from label data frame above</span></span>
+<code class="sourceCode R"><span><span class="co"># get the label of SPSS and STATA files imported in R</span></span>
+<span><span class="va">label_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span>df_w_label <span class="op">=</span> <span class="va">fake_snack_df</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>get_na_number</code>: <strong>An extension of <code><a href="reference/get_label_df.html">get_label_df()</a></code></strong>. It counts the number of NAs given a string snippet of variable or label names. It is useful to inspect the variables with unexpected number of NAs.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get NA counts from label data frame above</span></span>
 <span><span class="va">label_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span><span class="va">fake_snack_df</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/get_na_number.html">get_na_number</a></span><span class="op">(</span>data_df <span class="op">=</span> <span class="va">fake_snack_df</span>, label_df <span class="op">=</span> <span class="va">label_df</span>, keywords_label <span class="op">=</span> <span class="st">"dementia"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># get columns of all interested data files</span></span>
-<span><span class="va">df_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fake_snack_df"</span>,<span class="st">"fake_caide_df"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/get_all_colnames.html">get_all_colnames</a></span><span class="op">(</span>df_name <span class="op">=</span> <span class="va">df_files</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># create &amp; open a rmd file </span></span>
+<span><span class="fu"><a href="reference/get_na_number.html">get_na_number</a></span><span class="op">(</span>data_df <span class="op">=</span> <span class="va">fake_snack_df</span>, label_df <span class="op">=</span> <span class="va">label_df</span>, keywords_label <span class="op">=</span> <span class="st">"dementia"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
+For more information about R markdown please see <a href="https://rmarkdown.rstudio.com" class="external-link">here</a>.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># create &amp; open a rmd file</span></span>
 <span><span class="fu"><a href="reference/get_pretty_template.html">get_pretty_template</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reply to Prof XXX"</span>, output_file <span class="op">=</span> <span class="st">"word"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>get_date_digit</code>: Inspect date in numeric digit form. Find dates not having required form.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get the date digits and find wrong ones</span></span>
+<span><span class="fu"><a href="reference/get_date_digit.html">get_date_digit</a></span><span class="op">(</span></span>
+<span>  df_arg <span class="op">=</span> <span class="va">fake_snack_df</span>,</span>
+<span>  id_string <span class="op">=</span> <span class="st">"Lop"</span>,</span>
+<span>  date_string <span class="op">=</span> <span class="st">"numeric_date"</span>,</span>
+<span>  required_digits <span class="op">=</span> <span class="fl">8</span>,</span>
+<span>  required_leading_num <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>get_all_colnames</code>: Gather multiple interested data files and examine their columns together.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get columns of all interested data files</span></span>
+<span><span class="va">df_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fake_snack_df"</span>, <span class="st">"fake_caide_df"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/get_all_colnames.html">get_all_colnames</a></span><span class="op">(</span>df_name <span class="op">=</span> <span class="va">df_files</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="the-fix-family">The <code>fix</code> family<a class="anchor" aria-label="anchor" href="#the-fix-family"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<ul>
+<li>
+<code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check ID duplication</span></span>
 <span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">baseline_example_Relative_220504</span>, id_str <span class="op">=</span> <span class="st">"lopnr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="the-import-and-export-family">The <code>import</code> and <code>export</code> family<a class="anchor" aria-label="anchor" href="#the-import-and-export-family"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<ul>
+<li>
+<code>export_sav_to_csv</code>: Convert all the SPSS data files (<em>.sav</em>) to csv files. This conversion is needed because the maelstrom harmonization package does not read <em>.sav</em> data. This function can prevent repetitive work of converting <em>.sav</em> to <em>.csv</em> one by one.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># convert SPSS files</span></span>
-<span><span class="fu"><a href="reference/export_sav_to_csv.html">export_sav_to_csv</a></span><span class="op">(</span><span class="st">"original_data"</span>, <span class="st">"SNAC-K"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># bulk import</span></span>
-<span><span class="va">db_dir</span> <span class="op">&lt;-</span> <span class="fu">here</span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"raw"</span>,<span class="st">"SNAC-K"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/export_sav_to_csv.html">export_sav_to_csv</a></span><span class="op">(</span><span class="st">"original_data"</span>, <span class="st">"SNAC-K"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>import_bulk</code>: Bulk import SPSS, STATA and MS Excel files to R global environment.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># bulk import</span></span>
+<span><span class="va">db_dir</span> <span class="op">&lt;-</span> <span class="fu">here</span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"SNAC-K"</span><span class="op">)</span></span>
 <span><span class="co"># this import all csv, sav and dta files in the 'db_dir'</span></span>
 <span><span class="fu"><a href="reference/import_bulk.html">import_bulk</a></span><span class="op">(</span>data_dir <span class="op">=</span> <span class="va">db_dir</span><span class="op">)</span></span>
 <span><span class="co"># this import only a specific type files</span></span>
-<span><span class="fu"><a href="reference/import_bulk.html">import_bulk</a></span><span class="op">(</span>data_dir <span class="op">=</span> <span class="va">db_dir</span>, file_type <span class="op">=</span> <span class="st">'sav'</span><span class="op">)</span></span></code></pre></div>
-</div>
+<span><span class="fu"><a href="reference/import_bulk.html">import_bulk</a></span><span class="op">(</span>data_dir <span class="op">=</span> <span class="va">db_dir</span>, file_type <span class="op">=</span> <span class="st">"sav"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li><em>To be continued….</em></li>
+</ul>
 </div>
 </div>
 
