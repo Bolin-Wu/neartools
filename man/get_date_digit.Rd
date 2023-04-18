@@ -43,10 +43,12 @@ The \code{date_string} argument should lead to a unique date column. This functi
 \examples{
 \dontrun{
 
-date_digit_info = get_date_digit(df_arg = fake_snack_df,
-id_string = "Lop",
-date_string = "numeric_date",
-required_digits = 8, required_leading_digit = 2)
+date_digit_info <- get_date_digit(
+  df_arg = fake_snack_df,
+  id_string = "Lop",
+  date_string = "numeric_date",
+  required_digits = 8, required_leading_digit = 2
+)
 
 # get the digits
 date_digit_info$count_digit
@@ -56,7 +58,6 @@ date_digit_info$wrong_digit
 
 # check if the leading number is as required
 date_digit_info$leading_digit
-
 }
 
 }
