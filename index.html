@@ -77,6 +77,7 @@
 <li><p><code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
 For more information about R markdown please see <a href="https://rmarkdown.rstudio.com" class="external-link">here</a>.</p></li>
 <li><p><code>get_date_digit</code>: Inspect date in numeric digit form. Find dates not having required form.</p></li>
+<li><p><code>get_all_colnames</code>: Gather multiple interested data files and examine their columns together.</p></li>
 <li><p><code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</p></li>
 <li><p><code>export_sav_to_csv</code>: Convert all the SPSS data files (<em>.sav</em>) to csv files. This conversion is needed because the maelstrom harmonization package does not read <em>.sav</em> data. This function can prevent repetitive work of converting <em>.sav</em> to <em>.csv</em> one by one.</p></li>
 <li><p><code>import_bulk</code>: Bulk import SPSS, STATA and MS Excel files to R global environment.</p></li>
@@ -93,10 +94,14 @@ For more information about R markdown please see <a href="https://rmarkdown.rstu
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># read data</span></span>
+<span><span class="va">fake_snack_df</span> <span class="op">&lt;-</span> <span class="fu">neartools</span><span class="fu">::</span><span class="va"><a href="reference/fake_snack_df.html">fake_snack_df</a></span></span>
+<span><span class="va">fake_caide_df</span> <span class="op">&lt;-</span> <span class="fu">neartools</span><span class="fu">::</span><span class="va"><a href="reference/fake_caide_df.html">fake_caide_df</a></span></span></code></pre></div>
 <div class="section level3">
 <h3 id="the-get-family">The <code>get</code> family<a class="anchor" aria-label="anchor" href="#the-get-family"></a>
 </h3>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load the package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Bolin-Wu/neartools" class="external-link">neartools</a></span><span class="op">)</span></span>
 <span></span>
@@ -114,20 +119,24 @@ For more information about R markdown please see <a href="https://rmarkdown.rstu
 <span><span class="va">label_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span><span class="va">fake_snack_df</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/get_na_number.html">get_na_number</a></span><span class="op">(</span>data_df <span class="op">=</span> <span class="va">fake_snack_df</span>, label_df <span class="op">=</span> <span class="va">label_df</span>, keywords_label <span class="op">=</span> <span class="st">"dementia"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># get columns of all interested data files</span></span>
+<span><span class="va">df_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fake_snack_df"</span>,<span class="st">"fake_caide_df"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/get_all_colnames.html">get_all_colnames</a></span><span class="op">(</span>df_name <span class="op">=</span> <span class="va">df_files</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># create &amp; open a rmd file </span></span>
 <span><span class="fu"><a href="reference/get_pretty_template.html">get_pretty_template</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reply to Prof XXX"</span>, output_file <span class="op">=</span> <span class="st">"word"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="the-fix-family">The <code>fix</code> family<a class="anchor" aria-label="anchor" href="#the-fix-family"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check ID duplication</span></span>
 <span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">baseline_example_Relative_220504</span>, id_str <span class="op">=</span> <span class="st">"lopnr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="the-import-and-export-family">The <code>import</code> and <code>export</code> family<a class="anchor" aria-label="anchor" href="#the-import-and-export-family"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># convert SPSS files</span></span>
 <span><span class="fu"><a href="reference/export_sav_to_csv.html">export_sav_to_csv</a></span><span class="op">(</span><span class="st">"original_data"</span>, <span class="st">"SNAC-K"</span><span class="op">)</span></span>
 <span></span>
