@@ -38,6 +38,9 @@ This package contains functions as follows:
 -   `get_date_digit`: Inspect date in numeric digit form. Find dates not
     having required form.
 
+-   `get_all_colnames`: Gather multiple interested data files and
+    examine their columns together.
+
 -   `fix_dup_id`: Check existence of ID duplication and pinpoint them.
 
 -   `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv
@@ -62,6 +65,12 @@ devtools::install_github("Bolin-Wu/neartools", force = TRUE)
 
 ## Example
 
+``` r
+# read data
+fake_snack_df <- neartools::fake_snack_df
+fake_caide_df <- neartools::fake_caide_df
+```
+
 ### The `get` family
 
 ``` r
@@ -81,6 +90,10 @@ get_date_digit(df_arg = fake_snack_df,
 # get NA counts from label data frame above
 label_df <- get_label_df(fake_snack_df)
 get_na_number(data_df = fake_snack_df, label_df = label_df, keywords_label = "dementia")
+
+# get columns of all interested data files
+df_files = c("fake_snack_df","fake_caide_df")
+get_all_colnames(df_name = df_files)
 
 # create & open a rmd file 
 get_pretty_template(name = "Reply to Prof XXX", output_file = "word")

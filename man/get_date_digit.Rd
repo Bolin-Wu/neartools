@@ -24,7 +24,7 @@ get_date_digit(
 \item{required_leading_digit}{The expected date's leading digit.}
 }
 \value{
-A lit with two elements:
+A list with three elements:
   \item{count_digit}{A tibble of ID, date and date's digits.}
   \item{wrong_digit}{A tibble of dates that do not have required digits.}
   \item{leading_digit}{A tibble of dates with required digits and their leading number.}
