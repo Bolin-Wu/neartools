@@ -40,7 +40,7 @@ fake_caide_df <- fake_caide_df
 
 This package contains functions as follows:
 
-### The “get” family
+## The “get” family
 
 - `get_label_df`: Get the labels of a data frame. By filtering on the
   result, the users can quickly select the interested variables.
@@ -93,7 +93,7 @@ df_files <- c("fake_snack_df", "fake_caide_df")
 get_all_colnames(df_name = df_files)
 ```
 
-### The “fix” family
+## The “fix” family
 
 - `fix_dup_id`: Check existence of ID duplication and pinpoint them.
 
@@ -102,7 +102,7 @@ get_all_colnames(df_name = df_files)
 fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 ```
 
-### The “import” and “export” family
+## The “import” and “export” family
 
 - `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv
   files. This conversion is needed because the maelstrom harmonization
@@ -127,3 +127,9 @@ import_bulk(data_dir = db_dir, file_type = "sav")
 ```
 
 - *To be continued….*
+
+## History
+
+Please check
+[NEWS.md](https://github.com/Bolin-Wu/neartools/blob/master/NEWS.md) for
+history updates.
