@@ -78,7 +78,7 @@
 <div class="section level1">
 <h1 id="tools">Tools<a class="anchor" aria-label="anchor" href="#tools"></a>
 </h1>
-<p>Example data</p>
+<p>Example data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Bolin-Wu/neartools" class="external-link">neartools</a></span><span class="op">)</span></span>
 <span><span class="co"># read data</span></span>
@@ -86,7 +86,7 @@
 <span><span class="va">fake_caide_df</span> <span class="op">&lt;-</span> <span class="va">fake_caide_df</span></span></code></pre></div>
 <p>This package contains functions as follows:</p>
 <div class="section level3">
-<h3 id="the-get-family">The “<strong>get</strong>” family<a class="anchor" aria-label="anchor" href="#the-get-family"></a>
+<h3 id="the-get-family">The “get” family<a class="anchor" aria-label="anchor" href="#the-get-family"></a>
 </h3>
 <ul>
 <li>
@@ -105,8 +105,7 @@
 <span><span class="fu"><a href="reference/get_na_number.html">get_na_number</a></span><span class="op">(</span>data_df <span class="op">=</span> <span class="va">fake_snack_df</span>, label_df <span class="op">=</span> <span class="va">label_df</span>, keywords_label <span class="op">=</span> <span class="st">"dementia"</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>
-<code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. By default it complies an <em>html</em> file.<br>
-For more information about R markdown please see <a href="https://rmarkdown.rstudio.com" class="external-link">here</a>.</li>
+<code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. User can choose output file to be word”, “pdf” or “html”. By default it complies an “html” file.</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create &amp; open a rmd file</span></span>
@@ -134,7 +133,7 @@ For more information about R markdown please see <a href="https://rmarkdown.rstu
 <span><span class="fu"><a href="reference/get_all_colnames.html">get_all_colnames</a></span><span class="op">(</span>df_name <span class="op">=</span> <span class="va">df_files</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="the-fix-family">The “<strong>fix</strong>” family<a class="anchor" aria-label="anchor" href="#the-fix-family"></a>
+<h3 id="the-fix-family">The “fix” family<a class="anchor" aria-label="anchor" href="#the-fix-family"></a>
 </h3>
 <ul>
 <li>
@@ -145,7 +144,7 @@ For more information about R markdown please see <a href="https://rmarkdown.rstu
 <span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">baseline_example_Relative_220504</span>, id_str <span class="op">=</span> <span class="st">"lopnr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="the-import-and-export-family">The “<strong>import</strong>” and “<strong>export</strong>” family<a class="anchor" aria-label="anchor" href="#the-import-and-export-family"></a>
+<h3 id="the-import-and-export-family">The “import” and “export” family<a class="anchor" aria-label="anchor" href="#the-import-and-export-family"></a>
 </h3>
 <ul>
 <li>
