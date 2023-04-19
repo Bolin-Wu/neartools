@@ -30,7 +30,7 @@ neartools::get_all_colnames(df_name = df_files)
 # One can also use ls() and str_subset() function to
 # extract interested data files from the global environment
 # for example if you want to take patterns like
-"SNAC_K_BMI_baseline", "SNAC_K_BMI_FU1","SNAC_K_BMI_FU2":
+# "SNAC_K_BMI_baseline", "SNAC_K_BMI_FU1","SNAC_K_BMI_FU2":
 df_files <- str_subset(ls(), "^SNAC_K.*_(FU|baseline)*[1-9]*$")
 }
 
