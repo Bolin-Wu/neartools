@@ -29,7 +29,7 @@ devtools::install_github("Bolin-Wu/neartools", force = TRUE)
 
 # Tools
 
-Example data
+Example data:
 
 ``` r
 library(neartools)
@@ -40,19 +40,19 @@ fake_caide_df <- fake_caide_df
 
 This package contains functions as follows:
 
-### The “**get**” family
+### The “get” family
 
--   `get_label_df`: Get the labels of a data frame. By filtering on the
-    result, the users can quickly select the interested variables.
+- `get_label_df`: Get the labels of a data frame. By filtering on the
+  result, the users can quickly select the interested variables.
 
 ``` r
 # get the label of SPSS and STATA files imported in R
 label_df <- get_label_df(df_w_label = fake_snack_df)
 ```
 
--   `get_na_number`: **An extension of `get_label_df()`**. It counts the
-    number of NAs given a string snippet of variable or label names. It
-    is useful to inspect the variables with unexpected number of NAs.
+- `get_na_number`: **An extension of `get_label_df()`**. It counts the
+  number of NAs given a string snippet of variable or label names. It is
+  useful to inspect the variables with unexpected number of NAs.
 
 ``` r
 # get NA counts from label data frame above
@@ -60,20 +60,18 @@ label_df <- get_label_df(fake_snack_df)
 get_na_number(data_df = fake_snack_df, label_df = label_df, keywords_label = "dementia")
 ```
 
--   `get_pretty_template`: Automatically create & open an rmd file with
-    a nice looking template. This facilitates the communication with
-    researchers & tracking the records. By default it complies an *html*
-    file.  
-    For more information about R markdown please see
-    [here](https://rmarkdown.rstudio.com).
+- `get_pretty_template`: Automatically create & open an rmd file with a
+  nice looking template. This facilitates the communication with
+  researchers & tracking the records. User can choose output file to be
+  word”, “pdf” or “html”. By default it complies an “html” file.
 
 ``` r
 # create & open a rmd file
 get_pretty_template(name = "Reply to Prof XXX", output_file = "word")
 ```
 
--   `get_date_digit`: Inspect date in numeric digit form. Find dates not
-    having required form.
+- `get_date_digit`: Inspect date in numeric digit form. Find dates not
+  having required form.
 
 ``` r
 # get the date digits and find wrong ones
@@ -86,8 +84,8 @@ get_date_digit(
 )
 ```
 
--   `get_all_colnames`: Gather multiple interested data files and
-    examine their columns together.
+- `get_all_colnames`: Gather multiple interested data files and examine
+  their columns together.
 
 ``` r
 # get columns of all interested data files
@@ -95,29 +93,29 @@ df_files <- c("fake_snack_df", "fake_caide_df")
 get_all_colnames(df_name = df_files)
 ```
 
-### The “**fix**” family
+### The “fix” family
 
--   `fix_dup_id`: Check existence of ID duplication and pinpoint them.
+- `fix_dup_id`: Check existence of ID duplication and pinpoint them.
 
 ``` r
 # check ID duplication
 fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 ```
 
-### The “**import**” and “**export**” family
+### The “import” and “export” family
 
--   `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv
-    files. This conversion is needed because the maelstrom harmonization
-    package does not read *.sav* data. This function can prevent
-    repetitive work of converting *.sav* to *.csv* one by one.
+- `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv
+  files. This conversion is needed because the maelstrom harmonization
+  package does not read *.sav* data. This function can prevent
+  repetitive work of converting *.sav* to *.csv* one by one.
 
 ``` r
 # convert SPSS files
 export_sav_to_csv("original_data", "SNAC-K")
 ```
 
--   `import_bulk`: Bulk import SPSS, STATA and MS Excel files to R
-    global environment.
+- `import_bulk`: Bulk import SPSS, STATA and MS Excel files to R global
+  environment.
 
 ``` r
 # bulk import
@@ -128,4 +126,4 @@ import_bulk(data_dir = db_dir)
 import_bulk(data_dir = db_dir, file_type = "sav")
 ```
 
--   *To be continued….*
+- *To be continued….*
