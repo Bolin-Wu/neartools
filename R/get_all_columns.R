@@ -13,7 +13,7 @@
 #'   \item{names}{A tibble of files' names, index and their columns.}
 #'   \item{n_files}{A tibble of column number for each data file.}
 #'
-#' @export
+
 #'
 #' @examples
 #' \dontrun{
@@ -31,6 +31,9 @@
 #' "SNAC_K_BMI_baseline", "SNAC_K_BMI_FU1","SNAC_K_BMI_FU2":
 #' df_files <- str_subset(ls(), "^SNAC_K.*_(FU|baseline)*[1-9]*$")
 #' }
+#' @export
+#'
+#'
 get_all_colnames <- function(df_name = NULL) {
   if (is.null(df_name)) {
     stop("Please specify df_name.")
