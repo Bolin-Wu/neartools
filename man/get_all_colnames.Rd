@@ -33,4 +33,5 @@ neartools::get_all_colnames(df_name = df_files)
 "SNAC_K_BMI_baseline", "SNAC_K_BMI_FU1","SNAC_K_BMI_FU2":
 df_files <- str_subset(ls(), "^SNAC_K.*_(FU|baseline)*[1-9]*$")
 }
+
 }
