@@ -89,30 +89,34 @@
 <span><span class="va">fake_caide_df</span> <span class="op">&lt;-</span> <span class="va">fake_caide_df</span></span></code></pre></div>
 <p>This package contains functions as follows:</p>
 <div class="section level2">
-<h2 id="the-get-family">The “get” family<a class="anchor" aria-label="anchor" href="#the-get-family"></a>
+<h2 id="r-markdown-templates">R markdown templates<a class="anchor" aria-label="anchor" href="#r-markdown-templates"></a>
+</h2>
+<ul>
+<li>
+<code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. User can choose output file to be word”, “pdf” or “html”. By default it complies an “html” file.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># create &amp; open a rmd file</span></span>
+<span><span class="fu"><a href="reference/get_pretty_template.html">get_pretty_template</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reply to Prof XXX"</span>, output_file <span class="op">=</span> <span class="st">"word"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="data-inspection">Data inspection<a class="anchor" aria-label="anchor" href="#data-inspection"></a>
 </h2>
 <ul>
 <li>
 <code>get_label_df</code>: Get the labels of a data frame. By filtering on the result, the users can quickly select the interested variables.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get the label of SPSS and STATA files imported in R</span></span>
 <span><span class="va">label_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span>df_w_label <span class="op">=</span> <span class="va">fake_snack_df</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>
 <code>get_na_number</code>: <strong>An extension of <code><a href="reference/get_label_df.html">get_label_df()</a></code></strong>. It counts the number of NAs given a string snippet of variable or label names. It is useful to inspect the variables with unexpected number of NAs.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get NA counts from label data frame above</span></span>
 <span><span class="va">label_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_label_df.html">get_label_df</a></span><span class="op">(</span><span class="va">fake_snack_df</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/get_na_number.html">get_na_number</a></span><span class="op">(</span>data_df <span class="op">=</span> <span class="va">fake_snack_df</span>, label_df <span class="op">=</span> <span class="va">label_df</span>, keywords_label <span class="op">=</span> <span class="st">"dementia"</span><span class="op">)</span></span></code></pre></div>
-<ul>
-<li>
-<code>get_pretty_template</code>: Automatically create &amp; open an rmd file with a nice looking template. This facilitates the communication with researchers &amp; tracking the records. User can choose output file to be word”, “pdf” or “html”. By default it complies an “html” file.</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># create &amp; open a rmd file</span></span>
-<span><span class="fu"><a href="reference/get_pretty_template.html">get_pretty_template</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reply to Prof XXX"</span>, output_file <span class="op">=</span> <span class="st">"word"</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>
 <code>get_date_digit</code>: Inspect date in numeric digit form. Find dates not having required form.</li>
@@ -134,20 +138,12 @@
 <code class="sourceCode R"><span><span class="co"># get columns of all interested data files</span></span>
 <span><span class="va">df_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fake_snack_df"</span>, <span class="st">"fake_caide_df"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/get_all_colnames.html">get_all_colnames</a></span><span class="op">(</span>df_name <span class="op">=</span> <span class="va">df_files</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="the-fix-family">The “fix” family<a class="anchor" aria-label="anchor" href="#the-fix-family"></a>
-</h2>
-<ul>
-<li>
-<code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</li>
-</ul>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check ID duplication</span></span>
 <span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">baseline_example_Relative_220504</span>, id_str <span class="op">=</span> <span class="st">"lopnr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="the-import-and-export-family">The “import” and “export” family<a class="anchor" aria-label="anchor" href="#the-import-and-export-family"></a>
+<h2 id="data-import-and-export">Data import and export<a class="anchor" aria-label="anchor" href="#data-import-and-export"></a>
 </h2>
 <ul>
 <li>
@@ -172,10 +168,18 @@
 </ul>
 </div>
 <div class="section level2">
-<h2 id="history">History<a class="anchor" aria-label="anchor" href="#history"></a>
+<h2 id="sql-database">SQL database<a class="anchor" aria-label="anchor" href="#sql-database"></a>
 </h2>
-<p>Please check <a href="https://github.com/Bolin-Wu/neartools/blob/master/NEWS.md" class="external-link">NEWS.md</a> for history updates.</p>
+<ul>
+<li>
+<code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</li>
+</ul>
 </div>
+</div>
+<div class="section level1">
+<h1 id="changelog">Changelog<a class="anchor" aria-label="anchor" href="#changelog"></a>
+</h1>
+<p>Please check <a href="https://github.com/Bolin-Wu/neartools/blob/master/NEWS.md" class="external-link">NEWS.md</a> for history updates.</p>
 </div>
 
   </main><aside class="col-md-3"><div class="links">
