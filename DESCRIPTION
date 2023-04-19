@@ -23,6 +23,7 @@ Imports:
     usethis,
     utils,
     stringr,
+    tidyr,
     sjlabelled,
     readxl,
     glue
