@@ -40,7 +40,19 @@ fake_caide_df <- fake_caide_df
 
 This package contains functions as follows:
 
-## The “get” family
+## R markdown templates
+
+- `get_pretty_template`: Automatically create & open an rmd file with a
+  nice looking template. This facilitates the communication with
+  researchers & tracking the records. User can choose output file to be
+  word”, “pdf” or “html”. By default it complies an “html” file.
+
+``` r
+# create & open a rmd file
+get_pretty_template(name = "Reply to Prof XXX", output_file = "word")
+```
+
+## Data inspection
 
 - `get_label_df`: Get the labels of a data frame. By filtering on the
   result, the users can quickly select the interested variables.
@@ -58,16 +70,6 @@ label_df <- get_label_df(df_w_label = fake_snack_df)
 # get NA counts from label data frame above
 label_df <- get_label_df(fake_snack_df)
 get_na_number(data_df = fake_snack_df, label_df = label_df, keywords_label = "dementia")
-```
-
-- `get_pretty_template`: Automatically create & open an rmd file with a
-  nice looking template. This facilitates the communication with
-  researchers & tracking the records. User can choose output file to be
-  word”, “pdf” or “html”. By default it complies an “html” file.
-
-``` r
-# create & open a rmd file
-get_pretty_template(name = "Reply to Prof XXX", output_file = "word")
 ```
 
 - `get_date_digit`: Inspect date in numeric digit form. Find dates not
@@ -93,16 +95,12 @@ df_files <- c("fake_snack_df", "fake_caide_df")
 get_all_colnames(df_name = df_files)
 ```
 
-## The “fix” family
-
-- `fix_dup_id`: Check existence of ID duplication and pinpoint them.
-
 ``` r
 # check ID duplication
 fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 ```
 
-## The “import” and “export” family
+## Data import and export
 
 - `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv
   files. This conversion is needed because the maelstrom harmonization
@@ -128,7 +126,11 @@ import_bulk(data_dir = db_dir, file_type = "sav")
 
 - *To be continued….*
 
-## History
+## SQL database
+
+- `fix_dup_id`: Check existence of ID duplication and pinpoint them.
+
+# Changelog
 
 Please check
 [NEWS.md](https://github.com/Bolin-Wu/neartools/blob/master/NEWS.md) for
