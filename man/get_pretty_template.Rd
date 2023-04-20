@@ -24,7 +24,7 @@ get_pretty_template(
 \item{...}{Arguments to be passed to \link[usethis]{use_template}}
 }
 \description{
-Automatically create & open an rmd file with a nice looking template. This facilitates the communication with researchers & tracking the records. User can choose output file to be word”, “pdf” or “html”. By default it complies an “html” file.
+Automatically create & open an rmd file with a nice looking template. This facilitates the communication with researchers & tracking the records. User can choose output file to be word”, “pdf” or “html”. By default it complies an “word” file.
 }
 \examples{
 \dontrun{
