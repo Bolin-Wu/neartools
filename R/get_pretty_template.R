@@ -1,16 +1,17 @@
 #' @title get_pretty_template
-#' @description Use rmd templates to start analysis in R. More specifically, it creates a new folder at root of project and create a nice-looking template there.
+#' @description Automatically create & open an rmd file with a nice looking template. This facilitates the communication with researchers & tracking the records. User can choose output file to be word”, “pdf” or “html”. By default it complies an “html” file.
 #' @param name Name of rmd file. Please do not use '/' in the the file name (no need to add suffix ".Rmd").
 #' @param subDir Name of the folder where rmd file will be created. Remember to connect sub-dir names with '/'. By default it is 'rmd'.
 #' @param open Should the file be opened after being created
-#' @param output_file "word", "pdf" or "html", by default it is "html"
+#' @param output_file The output file's type. It could be "word", "pdf" or "html", by default it is "word"
 #' @param ... Arguments to be passed to \link[usethis]{use_template}
 #' @importFrom usethis use_template
 #' @importFrom here here
 #' @examples
 #' \dontrun{
 #' neartools::get_pretty_template(
-#'   subDir = "Enquiry/SNAC", name = "missing_value_problems",
+#'   subDir = "Enquiry/SNAC",
+#'   name = "snac_k_inspection",
 #'   output_file = "word"
 #' )
 #' }
@@ -19,7 +20,7 @@
 get_pretty_template <-
   function(name = NULL,
            subDir = "rmd",
-           output_file = "html",
+           output_file = "word",
            open = interactive(),
            ...) {
     if (is.null(name)) {
