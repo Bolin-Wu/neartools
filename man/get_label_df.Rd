@@ -13,7 +13,7 @@ get_label_df(df_w_label)
 A tibble with three columns:
   \item{variable}{The original variables' names.}
   \item{n_files}{The variables corresponding labels.}
-  \item{na_ratio}{Ratio of missing values.}
+  \item{na_percent}{Ratio of missing values.}
 }
 \description{
 During work, many times we receive SPSS or STATA data files with labels. This function is to extract the labels from the read-in data, turn them in tibble format.

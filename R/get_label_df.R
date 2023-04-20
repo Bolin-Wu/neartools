@@ -13,7 +13,7 @@
 #' @return A tibble with three columns:
 #'   \item{variable}{The original variables' names.}
 #'   \item{n_files}{The variables corresponding labels.}
-#'   \item{na_ratio}{Ratio of missing values.}
+#'   \item{na_percent}{Ratio of missing values.}
 #'
 #' @export
 #' @examples
@@ -41,7 +41,7 @@ get_label_df <- function(df_w_label) {
     pivot_longer(everything(),
       names_to = "variable", values_to = "na_count"
     ) %>%
-    transmute(variable, na_ratio = na_count / n_obs)
+    transmute(variable, na_percent = round(na_count / n_obs,3))
   label_df <- label_df %>% left_join(NA_df)
   return(label_df)
 }

@@ -4,7 +4,7 @@
 
 ### Update `get_label_df()`
 
-* add a new column 'na_ratio' to the result tibble.
+* add a new column 'na_percent' to the result tibble.
 
 ## 2023-04-18
 
