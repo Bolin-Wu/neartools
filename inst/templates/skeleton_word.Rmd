@@ -26,14 +26,30 @@ set_flextable_defaults(font.size = 11, padding = 3)
 *To see the table of content, please choose "yes" if you see the warning "This document contains fields may refer to other files..." when oping this doc.*
 
 
-# Flextable
+# Flextable {#sec:flextable}
 `flextable` is a useful package for printing tables for **word** file output. It is similar to `kable()`.
 
+You can cross-reference to [Flextable](#sec:flextable) in word output.
+
+If one wants to generate tables:
+
+```{r}
+df_name <- "fake_snack_df"
+neartools::fake_snack_df %>%
+  slice(1:10)
+flextable() %>%
+  set_caption("Table: ") %>%
+  add_footer_lines(glue::glue("Reference: {df_name}")) %>%
+  color(part = "footer", color = "#666666") %>%
+  theme_vanilla() %>%
+  autofit() %>%
+  width(width = 3) # use this if the autofit generates too big tables
+```
 
 If one wants to generate tables by loop:
 
 ```{r, include=TRUE, echo=FALSE, results='asis'}
-db = "GENDER"
+db <- "GENDER"
 for (i in 1:10) {
   cat("Table: ", i)
   ft <- flextable(cars[i, ])
