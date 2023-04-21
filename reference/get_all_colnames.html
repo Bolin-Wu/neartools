@@ -65,8 +65,8 @@
     
 
 <p>A list with two elements:</p>
-<dl><dt>names</dt>
-<dd><p>A tibble of files' names, index and their columns.</p></dd>
+<dl><dt>metadata</dt>
+<dd><p>A tibble of files' names, index and variables' names and labels.</p></dd>
 
   <dt>n_files</dt>
 <dd><p>A tibble of column number for each data file.</p></dd>
@@ -76,11 +76,14 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># read data to the global environment</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fake_snack_df</span> <span class="op">&lt;-</span> <span class="fu">neartools</span><span class="fu">::</span><span class="va"><a href="fake_snack_df.html">fake_snack_df</a></span></span></span>
 <span class="r-in"><span><span class="va">fake_caide_df</span> <span class="op">&lt;-</span> <span class="fu">neartools</span><span class="fu">::</span><span class="va"><a href="fake_caide_df.html">fake_caide_df</a></span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># put these two files together and check their columns</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">df_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fake_snack_df"</span>, <span class="st">"fake_caide_df"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">neartools</span><span class="fu">::</span><span class="fu">get_all_colnames</span><span class="op">(</span>df_name <span class="op">=</span> <span class="va">df_files</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -88,6 +91,7 @@
 <span class="r-in"><span><span class="co"># extract interested data files from the global environment</span></span></span>
 <span class="r-in"><span><span class="co"># for example if you want to take patterns like</span></span></span>
 <span class="r-in"><span><span class="co"># "SNAC_K_BMI_baseline", "SNAC_K_BMI_FU1","SNAC_K_BMI_FU2":</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">df_files</span> <span class="op">&lt;-</span> <span class="fu">str_subset</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ls.html" class="external-link">ls</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"^SNAC_K.*_(FU|baseline)*[1-9]*$"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
