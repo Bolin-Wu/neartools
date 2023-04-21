@@ -1,10 +1,16 @@
 # neartools 0.1.0
 
+## 2023-04-21
+
+### Update `get_all_columns()`
+
+* Add a new column 'label_char' to the result tibble.
+
 ## 2023-04-19
 
 ### Update `get_label_df()`
 
-* add a new column 'na_percent' to the result tibble.
+* Add a new column 'na_percent' to the result tibble.
 
 ## 2023-04-18
 
