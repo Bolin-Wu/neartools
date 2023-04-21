@@ -33,7 +33,8 @@ get_label_df <- function(df_w_label) {
   }
   label_char <- sjlabelled::get_label(df)
   label_df <- tibble::rownames_to_column(as.data.frame(label_char), "variable")
-  label_df <- tibble::as_tibble(label_df) %>% rename(variable = 1) # make sure the first column is "variable"
+  label_df <- tibble::as_tibble(label_df) %>% rename(variable = 1,
+                                                     label_char = 2)
   n_obs <- nrow(df_w_label)
   # get the NA ratio
   NA_df <- df_w_label %>%

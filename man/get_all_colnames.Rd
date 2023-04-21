@@ -11,7 +11,7 @@ get_all_colnames(df_name = NULL)
 }
 \value{
 A list with two elements:
-  \item{names}{A tibble of files' names, index and their columns.}
+  \item{metadata}{A tibble of files' names, index and variables' names and labels.}
   \item{n_files}{A tibble of column number for each data file.}
 }
 \description{
@@ -19,11 +19,14 @@ This functions gathers columns of several data files to examine them all togethe
 }
 \examples{
 \dontrun{
+
 # read data to the global environment
+
 fake_snack_df <- neartools::fake_snack_df
 fake_caide_df <- neartools::fake_caide_df
 
 # put these two files together and check their columns
+
 df_files <- c("fake_snack_df", "fake_caide_df")
 neartools::get_all_colnames(df_name = df_files)
 
@@ -31,6 +34,7 @@ neartools::get_all_colnames(df_name = df_files)
 # extract interested data files from the global environment
 # for example if you want to take patterns like
 # "SNAC_K_BMI_baseline", "SNAC_K_BMI_FU1","SNAC_K_BMI_FU2":
+
 df_files <- str_subset(ls(), "^SNAC_K.*_(FU|baseline)*[1-9]*$")
 }
 

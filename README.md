@@ -86,8 +86,8 @@ get_date_digit(
 )
 ```
 
-- `get_all_colnames`: Gather multiple interested data files and examine
-  their columns together.
+- `get_all_colnames`: Gather multiple data files and examine their
+  columns’ names and labels together.
 
 ``` r
 # get columns of all interested data files
