@@ -55,24 +55,15 @@ get_pretty_template(name = "Data_inspection_db")
 ## Data inspection
 
 - `get_label_df`: Get the labels of a data frame. By filtering on the
-  result, the users can quickly select the interested variables.
+  result, the users can quickly select the interested variables and
+  check their missing value percentages.
 
 ``` r
 # get the label of SPSS and STATA files imported in R
 label_df <- get_label_df(df_w_label = fake_snack_df)
 ```
 
-- `get_na_number`: **An extension of `get_label_df()`**. It counts the
-  number of NAs given a string snippet of variable or label names. It is
-  useful to inspect the variables with unexpected number of NAs.
-
-``` r
-# get NA counts from label data frame above
-label_df <- get_label_df(fake_snack_df)
-get_na_number(data_df = fake_snack_df, label_df = label_df, keywords_label = "dementia")
-```
-
-- `get_date_digit`: Inspect date in numeric digit form. Find dates not
+- `get_date_digit`: Inspect date in numeric digit form. Filter dates not
   having required form.
 
 ``` r
@@ -93,11 +84,6 @@ get_date_digit(
 # get columns of all interested data files
 df_files <- c("fake_snack_df", "fake_caide_df")
 get_all_colnames(df_name = df_files)
-```
-
-``` r
-# check ID duplication
-fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 ```
 
 ## Data import and export
@@ -129,6 +115,11 @@ import_bulk(data_dir = db_dir, file_type = "sav")
 ## SQL database
 
 - `fix_dup_id`: Check existence of ID duplication and pinpoint them.
+
+``` r
+# check ID duplication
+fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
+```
 
 # Changelog
 
