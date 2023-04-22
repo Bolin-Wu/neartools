@@ -15,6 +15,7 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE, include = TRUE, echo = F
 library(haven)
 library(knitr)
 library(tidyverse)
+library(neartools)
 library(here)
 library(flextable)
 set_flextable_defaults(font.size = 11, padding = 3)
@@ -36,14 +37,15 @@ If one wants to generate tables:
 ```{r}
 df_name <- "fake_snack_df"
 neartools::fake_snack_df %>%
-  slice(1:10)
-flextable() %>%
+  slice(1:10) %>%
+  select(1:5) %>%
+  flextable() %>%
   set_caption("Table: ") %>%
   add_footer_lines(glue::glue("Reference: {df_name}")) %>%
   color(part = "footer", color = "#666666") %>%
   theme_vanilla() %>%
   autofit() %>%
-  width(width = 3) # use this if the autofit generates too big tables
+  width(width = 1) # adjust this if the autofit generates too big tables
 ```
 
 If one wants to generate tables by loop:
