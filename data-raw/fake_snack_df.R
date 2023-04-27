@@ -36,4 +36,5 @@ shuffled_vector <- sample(numeric_date)
 fake_snack_df <- fake_snack_df %>%
   mutate(numeric_date = shuffled_vector)
 
+# export the data
 usethis::use_data(fake_snack_df, overwrite = TRUE)
