@@ -49,7 +49,11 @@ This package contains functions as follows:
 
 ``` r
 # create & open a rmd file
-get_pretty_template(name = "Data_inspection_db")
+get_pretty_template(
+  subDir = "Enquiry/db",
+  name = "Data_inspection_db",
+  output_file = "word"
+)
 ```
 
 ## Data inspection

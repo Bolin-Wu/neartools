@@ -1,4 +1,3 @@
-
 #' Fix the empty string in csv file
 #'
 #' When importing the csv file to MySQL workbench, if there is a cell with empty strings, the 'Wizard Import' function would skip that row.

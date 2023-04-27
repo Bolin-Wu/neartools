@@ -56,11 +56,11 @@ get_all_colnames <- function(df_name = NULL) {
   # col_name stores the columns' names in a df
   col_name <- c()
   # tibble_meta collects index, df_name and col_name
-  meta_tibble <- tibble(file_name = character(), index = numeric(), col_name = character(), label_char = character(),na_percent = numeric())
+  meta_tibble <- tibble(file_name = character(), index = numeric(), col_name = character(), label_char = character(), na_percent = numeric())
   for (i in 1:length(df_name)) {
     df <- get(df_name[i])
     n <- ncol(df)
-    df_lbl = neartools::get_label_df(df)
+    df_lbl <- neartools::get_label_df(df)
     # col_name <- colnames(df)
     # label_char <- sjlabelled::get_label(df)
     # label_df <- tibble::rownames_to_column(as.data.frame(label_char))

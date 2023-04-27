@@ -36,7 +36,7 @@
 #'
 #'
 
-export_sav_to_csv <- function(data_folder_name, db_name, out_dir=NULL) {
+export_sav_to_csv <- function(data_folder_name, db_name, out_dir = NULL) {
   db_dir <- here::here(data_folder_name, db_name)
   tb_name <- list.files(path = db_dir, pattern = "\\.sav$")
   # get rid of .sav extension when writing the csv file
@@ -46,7 +46,7 @@ export_sav_to_csv <- function(data_folder_name, db_name, out_dir=NULL) {
 
   # depending on optional user argument output_folder, the function can write to output_folder instead of csv_format
   # use file.path to create a file path that is compatible on different OS.
-  if(!is.null(out_dir)){
+  if (!is.null(out_dir)) {
     output_dir <- out_dir
 
     if (!dir.exists(output_dir)) {
@@ -55,7 +55,7 @@ export_sav_to_csv <- function(data_folder_name, db_name, out_dir=NULL) {
     } else {
       warning(glue("output_dir {output_dir} already exists!"))
     }
-  }else{
+  } else {
     output_dir <- file.path(data_folder_name, db_name, "csv_format")
 
     if (!dir.exists(output_dir)) {

@@ -31,8 +31,10 @@ get_label_df <- function(df_w_label) {
   }
   label_char <- sjlabelled::get_label(df)
   label_df <- tibble::rownames_to_column(as.data.frame(label_char), "variable")
-  label_df <- tibble::as_tibble(label_df) %>% rename(variable = 1,
-                                                     label_char = 2)
+  label_df <- tibble::as_tibble(label_df) %>% rename(
+    variable = 1,
+    label_char = 2
+  )
   n_obs <- nrow(df_w_label)
   # get the NA ratio
   NA_df <- df_w_label %>%
@@ -40,7 +42,7 @@ get_label_df <- function(df_w_label) {
     pivot_longer(everything(),
       names_to = "variable", values_to = "na_count"
     ) %>%
-    transmute(variable, na_percent = round(na_count / n_obs,3))
+    transmute(variable, na_percent = round(na_count / n_obs, 3))
   label_df <- label_df %>% left_join(NA_df, by = "variable")
   return(label_df)
 }
