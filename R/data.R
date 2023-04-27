@@ -24,4 +24,3 @@
 #'
 #' @format A data frame with 27 variables and 1000 random obs.
 "fake_caide_df"
-
