@@ -11,7 +11,7 @@ get_all_colnames(df_name = NULL)
 }
 \value{
 A list with two elements:
-  \item{metadata}{A tibble of files' names, index and variables' names and labels.}
+  \item{metadata}{A tibble of files' names, index and variables' names, labels and their missing values' percentage.}
   \item{n_files}{A tibble of column number for each data file.}
 }
 \description{

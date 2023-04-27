@@ -23,10 +23,8 @@
 #'
 get_label_df <- function(df_w_label) {
   if (is_tibble(df_w_label)) {
-    message(glue("Checking the dataframe: {deparse(substitute(df_w_label))}"))
     df <- df_w_label
   } else if (is.character(df_w_label)) {
-    message(glue("Checking the dataframe: {df_w_label}"))
     df <- get(df_w_label)
   } else {
     stop("Invalid argument. Must be either a data frame or a string representing a data frame name.")
@@ -43,6 +41,6 @@ get_label_df <- function(df_w_label) {
       names_to = "variable", values_to = "na_count"
     ) %>%
     transmute(variable, na_percent = round(na_count / n_obs,3))
-  label_df <- label_df %>% left_join(NA_df)
+  label_df <- label_df %>% left_join(NA_df, by = "variable")
   return(label_df)
 }

@@ -11,7 +11,7 @@
 #' @param df_name A vector of data files' names. It has to be strings.
 #'
 #' @return A list with two elements:
-#'   \item{metadata}{A tibble of files' names, index and variables' names and labels.}
+#'   \item{metadata}{A tibble of files' names, index and variables' names, labels and their missing values' percentage.}
 #'   \item{n_files}{A tibble of column number for each data file.}
 #'
 #'
@@ -56,18 +56,19 @@ get_all_colnames <- function(df_name = NULL) {
   # col_name stores the columns' names in a df
   col_name <- c()
   # tibble_meta collects index, df_name and col_name
-  meta_tibble <- tibble(file_name = character(), index = numeric(), col_name = character(), label_char = character())
+  meta_tibble <- tibble(file_name = character(), index = numeric(), col_name = character(), label_char = character(),na_percent = numeric())
   for (i in 1:length(df_name)) {
     df <- get(df_name[i])
     n <- ncol(df)
-    col_name <- colnames(df)
-    label_char <- sjlabelled::get_label(df)
-    label_df <- tibble::rownames_to_column(as.data.frame(label_char))
-    label_df <- tibble::as_tibble(label_df) %>% rename(variable = 1,
-                                                       label_char = 2)
-    label_char = label_df %>% pull(label_char)
+    df_lbl = neartools::get_label_df(df)
+    # col_name <- colnames(df)
+    # label_char <- sjlabelled::get_label(df)
+    # label_df <- tibble::rownames_to_column(as.data.frame(label_char))
+    # label_df <- tibble::as_tibble(label_df) %>% rename(variable = 1,
+    #                                                    label_char = 2)
+    # label_char = label_df %>% pull(label_char)
     # tibble_i <- tibble(file_name = df_name[i], index = 1:n, col_name = col_name)
-    meta_tibble <- meta_tibble %>% add_row(file_name = df_name[i], index = 1:n, col_name = col_name, label_char = label_char)
+    meta_tibble <- meta_tibble %>% add_row(file_name = df_name[i], index = 1:n, col_name = df_lbl$variable, label_char = df_lbl$label_char, na_percent = df_lbl$na_percent)
   }
   n_files <- meta_tibble %>%
     count(file_name) %>%

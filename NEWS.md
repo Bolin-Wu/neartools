@@ -2,9 +2,14 @@
 
 ## 2023-04-27
 
+### Update `get_all_colnames`
+
+* Now the metadata tibble has 'na_percent'.
+
+
 ### Update `export_sav_to_csv()`
 
-* add a new argument 'output_dir' argument.
+* Add a new argument 'output_dir' argument.
 
 ## 2023-04-21
 

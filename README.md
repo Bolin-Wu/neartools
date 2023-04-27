@@ -78,7 +78,7 @@ get_date_digit(
 ```
 
 - `get_all_colnames`: Gather multiple data files and examine their
-  columns’ names and labels together.
+  columns’ names, labels and missing value percentages together.
 
 ``` r
 # get columns of all interested data files
