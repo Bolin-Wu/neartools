@@ -130,3 +130,5 @@ fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 Please check
 [NEWS.md](https://github.com/Bolin-Wu/neartools/blob/master/NEWS.md) for
 history updates.
+
+![](man/figures/project_map_movie.gif)<!-- -->
