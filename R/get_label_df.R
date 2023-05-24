@@ -22,7 +22,7 @@
 #' }
 #'
 get_label_df <- function(df_w_label) {
-  if (is_tibble(df_w_label)) {
+  if (is.data.frame(df_w_label)) {
     df <- df_w_label
   } else if (is.character(df_w_label)) {
     df <- get(df_w_label)
