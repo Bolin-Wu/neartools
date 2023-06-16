@@ -86,6 +86,8 @@ fix_dup_id <- function(df, id_str) {
   }
   # add new id to the df
   df_update <- df %>% add_column(new_lopnr = new_lopnr, .before = id_nr)
+  # convert rep_id from factor to numeric
+  rep_id = as.numeric(as.character(rep_id))
   return(list(
     logic_rep = !length(unique(df[[id_nr]])) == length(df[[id_nr]]),
     new_lopnr = new_lopnr,
