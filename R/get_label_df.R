@@ -12,7 +12,7 @@
 #' @import tibble
 #' @return A tibble with three columns:
 #'   \item{variable}{The original variables' names.}
-#'   \item{n_files}{The variables corresponding labels.}
+#'   \item{label_char}{The variables corresponding labels.}
 #'   \item{na_percent}{Ratio of missing values.}
 #'
 #' @export
