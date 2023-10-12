@@ -104,8 +104,8 @@ get_all_colnames(df_name = df_files)
 export_sav_to_csv("original_data", "SNAC-K")
 ```
 
-- `import_bulk`: Bulk import SPSS, STATA and MS Excel files to R global
-  environment.
+- `import_bulk`: Bulk import SPSS, STATA, rds, Rdata and MS Excel files
+  to R global environment.
 
 ``` r
 # bulk import

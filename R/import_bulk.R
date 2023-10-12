@@ -6,7 +6,7 @@
 #'
 #'
 #' @param data_dir The folder storing data files.
-#' @param file_type The data file type. Options could be 'sav' or 'dta' or 'csv'. Default is 'all'.
+#' @param file_type The data file type. Options could be 'sav' or 'dta', 'csv', 'Rdata' or 'rds'. Default is 'all'.
 #' \itemize{
 #'   \item sav uses \code{read_sav()} from 'haven' package.
 #'   \item dta uses \code{read_dta()} from 'haven' package.
@@ -50,8 +50,8 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
   }
-  if (!file_type %in% c("all", "sav", "dta", "csv", "xlsx")) {
-    stop("Invalid file type. It has to be one of 'all','sav', 'dta', 'csv','xlsx'.")
+  if (!file_type %in% c("all", "sav", "dta", "csv", "xlsx", "Rdata","rds")) {
+    stop("Invalid file type. It has to be one of 'all','sav', 'dta', 'csv','xlsx', 'Rdata','rds'.")
   }
   if (file_type == "sav") {
     tb_name <- list.files(path = data_dir, pattern = "\\.sav$")
@@ -65,8 +65,11 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   if (file_type == "xlsx") {
     tb_name <- list.files(path = data_dir, pattern = "\\.xlsx$")
   }
+  if (file_type == "Rdata") {
+    tb_name <- list.files(path = data_dir, pattern = "\\.Rdata$")
+  }
   if (file_type == "all") {
-    tb_name <- list.files(path = data_dir, pattern = ".*[sav|dta|csv|xlsx]$")
+    tb_name <- list.files(path = data_dir, pattern = ".*[sav|dta|csv|xlsx|Rdata|rds]$")
   }
   # report error if can not get any table
   stopifnot("Can not find relevant data files." = length(tb_name) > 0)
@@ -95,6 +98,16 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
       assign(clean_name[i],
         read_excel(here(data_dir, tb_name[i]), sheet = 1),
         envir = .GlobalEnv
+      )
+    } else if (grepl(".*Rdata$", tb_name[i])) {
+      assign(clean_name[i],
+             load(here(data_dir, tb_name[i])),
+             envir = .GlobalEnv
+      )
+    } else if (grepl(".*rds$", tb_name[i])) {
+      assign(clean_name[i],
+             readRDS(here(data_dir, tb_name[i])),
+             envir = .GlobalEnv
       )
     }
   }

@@ -1,5 +1,12 @@
 # neartools 0.1.0
 
+## 2023-10-12
+
+### Update `import_bulk`
+
+* Now it supports importing the 'rds' and 'Rdata' files.
+
+
 ## 2023-04-27
 
 ### Update `get_all_colnames`
