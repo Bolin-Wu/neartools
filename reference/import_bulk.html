@@ -71,7 +71,8 @@ This function is to bulk import data files of types mentioned above into R envir
 <li><p>dta uses <code>read_dta()</code> from 'haven' package.</p></li>
 <li><p>csv uses <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv()</a></code> from 'utils' package.</p></li>
 <li><p>xlsx uses <code>read_excel()</code> from 'readxl' package.</p></li>
-<li><p>The default 'all' imports all three kinds of data.</p></li>
+<li><p>Rdata and rds uses <code><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS()</a></code> and <code><a href="https://rdrr.io/r/base/load.html" class="external-link">load()</a></code> from R base.</p></li>
+<li><p>The default 'all' imports all five kinds of data.</p></li>
 </ul></dd>
 
 </dl></div>
@@ -87,6 +88,8 @@ This function is to bulk import data files of types mentioned above into R envir
     
 <ul><li><p><code>here</code> function is a fast and neat way of defining data directory <code>data_dir</code>.</p></li>
 <li><p>Be careful when importing the csv files. It could be messy since this function just uses default parameters of <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv()</a></code>.</p></li>
+<li><p>For 'Rdata' files, it can read 'Rdata', 'RData', "rdata".</p></li>
+<li><p>For 'Rds' files, it can read 'Rds' or 'rds'.</p></li>
 </ul></div>
 
     <div class="section level2">
