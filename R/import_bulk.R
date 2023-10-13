@@ -12,12 +12,14 @@
 #'   \item dta uses \code{read_dta()} from 'haven' package.
 #'   \item csv uses \code{read.csv()} from 'utils' package.
 #'   \item xlsx uses \code{read_excel()} from 'readxl' package.
-#'   \item The default 'all' imports all three kinds of data.
+#'   \item Rdata and rds uses \code{readRDS()} and \code{load()} from R base.
+#'   \item The default 'all' imports all five kinds of data.
 #' }
 #' @note
 #' * \code{here} function is a fast and neat way of defining data directory `data_dir`.
 #' * Be careful when importing the csv files. It could be messy since this function just uses default parameters of \code{read.csv()}.
-#'
+#' * For 'Rdata' files, it can read 'Rdata', 'RData', "rdata".
+#' * For 'Rds' files, it can read 'Rds' or 'rds'.
 #'
 #'
 #' @return Two results as follows:
@@ -46,6 +48,7 @@
 #' @export
 #'
 #'
+
 import_bulk <- function(data_dir = NULL, file_type = "all") {
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
@@ -66,10 +69,10 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
     tb_name <- list.files(path = data_dir, pattern = "\\.xlsx$")
   }
   if (file_type == "Rdata") {
-    tb_name <- list.files(path = data_dir, pattern = "\\.Rdata$")
+    tb_name <- list.files(path = data_dir, pattern = "\\.[Rr][Dd]ata$")
   }
   if (file_type == "all") {
-    tb_name <- list.files(path = data_dir, pattern = ".*[sav|dta|csv|xlsx|Rdata|rds]$")
+    tb_name <- list.files(path = data_dir, pattern = ".*(sav|dta|csv|xlsx|[Rr][Dd][at]*a|[Rr]ds)+$")
   }
   # report error if can not get any table
   stopifnot("Can not find relevant data files." = length(tb_name) > 0)
@@ -80,33 +83,34 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   # import files
   for (i in 1:length(tb_name)) {
     if (grepl(".*sav$", tb_name[i])) {
+
       assign(clean_name[i],
-        read_sav(here(data_dir, tb_name[i])),
-        envir = .GlobalEnv
+             read_sav(here(data_dir, tb_name[i])),
+             envir = .GlobalEnv
       )
     } else if (grepl(".*dta$", tb_name[i])) {
       assign(clean_name[i],
-        read_dta(here(data_dir, tb_name[i])),
-        envir = .GlobalEnv
+             read_dta(here(data_dir, tb_name[i])),
+             envir = .GlobalEnv
       )
     } else if (grepl(".*csv$", tb_name[i])) {
       assign(clean_name[i],
-        read.csv(here(data_dir, tb_name[i])),
-        envir = .GlobalEnv
+             read.csv(here(data_dir, tb_name[i])),
+             envir = .GlobalEnv
       )
     } else if (grepl(".*xlsx$", tb_name[i])) {
       assign(clean_name[i],
-        read_excel(here(data_dir, tb_name[i]), sheet = 1),
-        envir = .GlobalEnv
-      )
-    } else if (grepl(".*Rdata$", tb_name[i])) {
-      assign(clean_name[i],
-             load(here(data_dir, tb_name[i])),
+             read_excel(here(data_dir, tb_name[i]), sheet = 1),
              envir = .GlobalEnv
       )
-    } else if (grepl(".*rds$", tb_name[i])) {
+    } else if (grepl(".*[Rr][Dd]ata$", tb_name[i])) {
       assign(clean_name[i],
-             readRDS(here(data_dir, tb_name[i])),
+             get(load(here(data_dir, tb_name[i]))),
+             envir = .GlobalEnv
+      )
+    } else if (grepl(".*[Rr]ds$", tb_name[i])) {
+      assign(clean_name[i],
+             get(readRDS(here(data_dir, tb_name[i]))),
              envir = .GlobalEnv
       )
     }

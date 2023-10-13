@@ -15,7 +15,8 @@ import_bulk(data_dir = NULL, file_type = "all")
 \item dta uses \code{read_dta()} from 'haven' package.
 \item csv uses \code{read.csv()} from 'utils' package.
 \item xlsx uses \code{read_excel()} from 'readxl' package.
-\item The default 'all' imports all three kinds of data.
+\item Rdata and rds uses \code{readRDS()} and \code{load()} from R base.
+\item The default 'all' imports all five kinds of data.
 }}
 }
 \value{
@@ -34,6 +35,8 @@ This function is to bulk import data files of types mentioned above into R envir
 \itemize{
 \item \code{here} function is a fast and neat way of defining data directory \code{data_dir}.
 \item Be careful when importing the csv files. It could be messy since this function just uses default parameters of \code{read.csv()}.
+\item For 'Rdata' files, it can read 'Rdata', 'RData', "rdata".
+\item For 'Rds' files, it can read 'Rds' or 'rds'.
 }
 }
 \examples{
