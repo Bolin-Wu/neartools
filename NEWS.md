@@ -1,5 +1,14 @@
 # neartools 0.1.0
 
+## 2023-10-26
+
+
+
+### Update `fix_dup_id`
+
+* The function name now called `get_dup_id`.
+* Remove the output of new id and data frame with new id. In the old version, the generation of the ID does not make sense, it's simpliy for the purpose of definining the primary syntax in MySQL. Now it is longer needed. Therefore these two outputs are deleted from the output list.
+
 ## 2023-10-12
 
 ### Update `import_bulk`

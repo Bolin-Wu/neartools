@@ -120,11 +120,11 @@ import_bulk(data_dir = db_dir, file_type = "sav")
 
 ## SQL database
 
-- `fix_dup_id`: Check existence of ID duplication and pinpoint them.
+- `get_dup_id`: Check existence of ID duplication and pinpoint them.
 
 ``` r
 # check ID duplication
-fix_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
+get_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
 ```
 
 # Changelog

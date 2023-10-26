@@ -1,4 +1,4 @@
-#' Fix replicated id in a data file
+#' Find replicated id in a data file
 #'
 #' In NEAR, we use ID (lopnr) to identify a specific participant. If two people share the same ID, there must be a problem.
 #' This function is used to:
@@ -14,9 +14,7 @@
 #' @return A list with examination results
 #' \itemize{
 #'   \item logic_rep: If df has replicated ID or not.
-#'   \item new_lopnr: A new distinct ID. E.g, for both people with ID = 2, the new ID are 2.0, 2.1.
 #'   \item replicated_id: Specific replicated ID. May need to report them to local DBM.
-#'   \item df_update: A new df with new_lopnr appened before original ID column.
 #' }
 #' @export
 #'
@@ -28,10 +26,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' neartools::fix_dup_id(df_fix_dup_id, id_str = "id")
+#' neartools::get_dup_id(df_fix_dup_id, id_str = "id")
 #' }
 #'
-fix_dup_id <- function(df, id_str) {
+get_dup_id <- function(df, id_str) {
   Freq <- NULL # make 'Freq' to be a function specific variable.
   df_name <- deparse(substitute(df))
   df_colnames <- colnames(df)
@@ -54,7 +52,7 @@ fix_dup_id <- function(df, id_str) {
   if (length(unique(df[[id_nr]])) == length(df[[id_nr]])) {
     stop("There is no duplicated id!")
   } else {
-    message(paste0("New lopnr added to: ", df_name))
+    message(paste0("There is duplicated id in the file: ", df_name))
   }
   # freq table of column contains "lopnr"
   n_occur <- data.frame(table(
@@ -80,18 +78,13 @@ fix_dup_id <- function(df, id_str) {
         freq_tab %>%
         filter(id == id_check) %>%
         pull(Freq)
-      new_lopnr[i:(i + rep_freq - 1)] <- id_check + 0.1 * seq(0, rep_freq - 1)
       i <- i + rep_freq
     }
   }
-  # add new id to the df
-  df_update <- df %>% add_column(new_lopnr = new_lopnr, .before = id_nr)
   # convert rep_id from factor to numeric
   rep_id = as.numeric(as.character(rep_id))
   return(list(
     logic_rep = !length(unique(df[[id_nr]])) == length(df[[id_nr]]),
-    new_lopnr = new_lopnr,
-    replicated_id = rep_id,
-    df_update = df_update
+    replicated_id = rep_id
   ))
 }
