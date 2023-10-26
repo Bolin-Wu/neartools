@@ -29,9 +29,9 @@ You can install the development version of neartools from
 devtools::install_github("Bolin-Wu/neartools", force = TRUE)
 ```
 
-# Tools
+# Example data
 
-Example data:
+This package contains example data sets to test the functions.
 
 ``` r
 library(neartools)
@@ -40,9 +40,7 @@ fake_snack_df <- fake_snack_df
 fake_caide_df <- fake_caide_df
 ```
 
-This package contains functions as follows:
-
-## R markdown templates
+# R markdown templates
 
 - `get_pretty_template`: Automatically create & open an rmd file with a
   nice looking template. This facilitates the communication with
@@ -58,7 +56,7 @@ get_pretty_template(
 )
 ```
 
-## Data inspection
+# Data inspection
 
 - `get_label_df`: Get the labels of a data frame. By filtering on the
   result, the users can quickly select the interested variables and
@@ -92,7 +90,31 @@ df_files <- c("fake_snack_df", "fake_caide_df")
 get_all_colnames(df_name = df_files)
 ```
 
-## Data import and export
+- `get_dup_id`: Check existence of ID duplication and pinpoint them.
+
+``` r
+# check ID duplication
+get_dup_id(df = df_dup_id, id_str = "id")
+```
+
+- `get_diff_cols`: Compare the two records with the same ID, find the
+  columns with different values.
+  - It is useful for deciding which row to keep when we find there are
+    duplicated IDs (e.g. after using `get_dup_id()`).  
+  - This function conquers the problem ‘NA’ values when comparing the
+    columns. Most available functions by default returns ‘NA’ as long as
+    there is any missing value in the columns. However, we also want to
+    know the columns that one record gives “NA” and the other has
+    values.
+
+``` r
+# find duplicared IDs
+dup_id = get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
+
+get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
+```
+
+# Data import and export
 
 - `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv
   files. This conversion is needed because the maelstrom harmonization
@@ -117,32 +139,6 @@ import_bulk(data_dir = db_dir, file_type = "sav")
 ```
 
 - *To be continued….*
-
-## SQL database
-
-- `get_dup_id`: Check existence of ID duplication and pinpoint them.
-
-``` r
-# check ID duplication
-get_dup_id(df = df_dup_id, id_str = "id")
-```
-
-- `get_diff_cols`: Compare the two records with the same ID, find the
-  columns with different values.
-  - It is useful for deciding which row to keep when we find there are
-    duplicated IDs (e.g. after using `get_dup_id()`).  
-  - This function conquers the problem ‘NA’ values when comparing the
-    columns. Most available functions by default returns ‘NA’ as long as
-    there is any missing value in the columns. However, we also want to
-    know the columns that one record gives “NA” and the other has
-    values.
-
-``` r
-# find duplicared IDs
-dup_id = get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
-
-get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
-```
 
 # Changelog
 
