@@ -2,6 +2,9 @@
 
 ## 2023-10-26
 
+### New function `get_diff_cols`
+
+* This function finds the columns with different values by comparing the two records with the same ID.
 
 
 ### Update `fix_dup_id`

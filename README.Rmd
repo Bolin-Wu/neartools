@@ -134,8 +134,20 @@ import_bulk(data_dir = db_dir, file_type = "sav")
 
 ```{r }
 # check ID duplication
-get_dup_id(df = baseline_example_Relative_220504, id_str = "lopnr")
+get_dup_id(df = df_dup_id, id_str = "id")
 ```
+
+* `get_diff_cols`: Compare the two records with the same ID, find the columns with different values.
+  * It is useful for deciding which row to keep when we find there are duplicated IDs (e.g. after using `get_dup_id()`).  
+  * This function conquers the problem 'NA' values when comparing the columns. Most available functions by default returns 'NA' as long as there is any missing value in the columns. However, we also want to know the columns that one record gives "NA" and the other has values.
+
+```{r }
+# find duplicared IDs
+dup_id = get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
+
+get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
+```
+
 
 # Changelog 
 

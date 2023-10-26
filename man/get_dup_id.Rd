@@ -9,7 +9,7 @@ get_dup_id(df, id_str)
 \arguments{
 \item{df}{A tibble to be examined.}
 
-\item{id_str}{A string that should contain ID name. E.g. "lopnr".}
+\item{id_str}{A string that contains ID name. E.g. "lopnr".}
 }
 \value{
 A list with examination results
@@ -23,13 +23,12 @@ In NEAR, we use ID (lopnr) to identify a specific participant. If two people sha
 This function is used to:
 \itemize{
   \item Check if a data file has replicated ID.
-  \item If there is replicated id, find out which IDs are replicated. Generate new distinct new id & append it before the original ID column.
+  \item If there is replicated id, find out which IDs are replicated.
 }
-The new ID can be temporarily used as primary key when importing data to MySQL.
 }
 \examples{
 \dontrun{
-neartools::get_dup_id(df_fix_dup_id, id_str = "id")
+neartools::get_dup_id(df_dup_id, id_str = "id")
 }
 
 }

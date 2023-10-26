@@ -1,9 +1,9 @@
 #' Example data frame
 #'
-#' A data frame to test the \code{fix_dup_id} function in package.
+#' A data frame to test the \code{get_dup_id} function in package.
 #'
 #' @format A data frame with 2 variables: \code{id}, \code{num}.
-"df_fix_dup_id"
+"df_dup_id"
 
 
 #' Fake SNAC-K data

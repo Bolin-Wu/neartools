@@ -4,12 +4,11 @@
 #' This function is used to:
 #' \itemize{
 #'   \item Check if a data file has replicated ID.
-#'   \item If there is replicated id, find out which IDs are replicated. Generate new distinct new id & append it before the original ID column.
+#'   \item If there is replicated id, find out which IDs are replicated.
 #' }
-#' The new ID can be temporarily used as primary key when importing data to MySQL.
 #'
 #' @param df A tibble to be examined.
-#' @param id_str A string that should contain ID name. E.g. "lopnr".
+#' @param id_str A string that contains ID name. E.g. "lopnr".
 #'
 #' @return A list with examination results
 #' \itemize{
@@ -26,7 +25,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' neartools::get_dup_id(df_fix_dup_id, id_str = "id")
+#' neartools::get_dup_id(df_dup_id, id_str = "id")
 #' }
 #'
 get_dup_id <- function(df, id_str) {
