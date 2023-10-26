@@ -166,11 +166,26 @@
 </h2>
 <ul>
 <li>
-<code>fix_dup_id</code>: Check existence of ID duplication and pinpoint them.</li>
+<code>get_dup_id</code>: Check existence of ID duplication and pinpoint them.</li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check ID duplication</span></span>
-<span><span class="fu"><a href="reference/fix_dup_id.html">fix_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">baseline_example_Relative_220504</span>, id_str <span class="op">=</span> <span class="st">"lopnr"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/get_dup_id.html">get_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">df_dup_id</span>, id_str <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>get_diff_cols</code>: Compare the two records with the same ID, find the columns with different values.
+<ul>
+<li>It is useful for deciding which row to keep when we find there are duplicated IDs (e.g. after using <code><a href="reference/get_dup_id.html">get_dup_id()</a></code>).<br>
+</li>
+<li>This function conquers the problem ‘NA’ values when comparing the columns. Most available functions by default returns ‘NA’ as long as there is any missing value in the columns. However, we also want to know the columns that one record gives “NA” and the other has values.</li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># find duplicared IDs</span></span>
+<span><span class="va">dup_id</span> <span class="op">=</span> <span class="fu"><a href="reference/get_dup_id.html">get_dup_id</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">df_dup_id</span>, id_str <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span><span class="op">$</span><span class="va">replicated_id</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/get_diff_cols.html">get_diff_cols</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df_dup_id</span>, id_str <span class="op">=</span> <span class="st">"id"</span>, id_num <span class="op">=</span> <span class="va">dup_id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level1">

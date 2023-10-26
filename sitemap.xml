@@ -19,7 +19,7 @@
     <loc>https://bolin-wu.github.io/neartools/news/index.html</loc>
   </url>
   <url>
-    <loc>https://bolin-wu.github.io/neartools/reference/df_fix_dup_id.html</loc>
+    <loc>https://bolin-wu.github.io/neartools/reference/df_dup_id.html</loc>
   </url>
   <url>
     <loc>https://bolin-wu.github.io/neartools/reference/export_sav_to_csv.html</loc>
@@ -31,9 +31,6 @@
     <loc>https://bolin-wu.github.io/neartools/reference/fake_snack_df.html</loc>
   </url>
   <url>
-    <loc>https://bolin-wu.github.io/neartools/reference/fix_dup_id.html</loc>
-  </url>
-  <url>
     <loc>https://bolin-wu.github.io/neartools/reference/fix_empty_string.html</loc>
   </url>
   <url>
@@ -41,6 +38,12 @@
   </url>
   <url>
     <loc>https://bolin-wu.github.io/neartools/reference/get_date_digit.html</loc>
+  </url>
+  <url>
+    <loc>https://bolin-wu.github.io/neartools/reference/get_diff_cols.html</loc>
+  </url>
+  <url>
+    <loc>https://bolin-wu.github.io/neartools/reference/get_dup_id.html</loc>
   </url>
   <url>
     <loc>https://bolin-wu.github.io/neartools/reference/get_label_df.html</loc>
