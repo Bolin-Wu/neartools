@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_bulk.R
 \name{import_bulk}
 \alias{import_bulk}
-\title{Bulk import SPSS(sav) and STATA(dta) and MS Excel(csv) data into R}
+\title{Bulk import SPSS(sav) and STATA(dta), MS Excel(csv) Rdata and RDS files into R}
 \usage{
 import_bulk(data_dir = NULL, file_type = "all")
 }

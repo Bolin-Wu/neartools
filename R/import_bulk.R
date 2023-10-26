@@ -1,4 +1,4 @@
-#' Bulk import SPSS(sav) and STATA(dta) and MS Excel(csv) data into R
+#' Bulk import SPSS(sav) and STATA(dta), MS Excel(csv) Rdata and RDS files into R
 #'
 #' Many NEAR databases stroe data in SPSS or STATA and MS Excel. Therefore chances are that we need
 #' to import many different files at a time in R for further analysis.
