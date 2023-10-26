@@ -81,7 +81,7 @@ get_dup_id <- function(df, id_str) {
     }
   }
   # convert rep_id from factor to numeric
-  rep_id = as.numeric(as.character(rep_id))
+  rep_id <- as.numeric(as.character(rep_id))
   return(list(
     logic_rep = !length(unique(df[[id_nr]])) == length(df[[id_nr]]),
     replicated_id = rep_id

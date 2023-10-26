@@ -38,6 +38,7 @@ library(neartools)
 # read data
 fake_snack_df <- fake_snack_df
 fake_caide_df <- fake_caide_df
+df_dup_id <- df_dup_id
 ```
 
 # R markdown templates
@@ -109,7 +110,7 @@ get_dup_id(df = df_dup_id, id_str = "id")
 
 ``` r
 # find duplicared IDs
-dup_id = get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
+dup_id <- get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
 
 get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
 ```

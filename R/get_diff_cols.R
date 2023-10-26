@@ -15,7 +15,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' dup_id = get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
+#' dup_id <- get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
 #' get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
 #' }
 #'

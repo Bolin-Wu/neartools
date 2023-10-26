@@ -53,7 +53,7 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   if (is.null(data_dir)) {
     stop("There is no input for data directory.")
   }
-  if (!file_type %in% c("all", "sav", "dta", "csv", "xlsx", "Rdata","rds")) {
+  if (!file_type %in% c("all", "sav", "dta", "csv", "xlsx", "Rdata", "rds")) {
     stop("Invalid file type. It has to be one of 'all','sav', 'dta', 'csv','xlsx', 'Rdata','rds'.")
   }
   if (file_type == "sav") {
@@ -83,35 +83,34 @@ import_bulk <- function(data_dir = NULL, file_type = "all") {
   # import files
   for (i in 1:length(tb_name)) {
     if (grepl(".*sav$", tb_name[i])) {
-
       assign(clean_name[i],
-             read_sav(here(data_dir, tb_name[i])),
-             envir = .GlobalEnv
+        read_sav(here(data_dir, tb_name[i])),
+        envir = .GlobalEnv
       )
     } else if (grepl(".*dta$", tb_name[i])) {
       assign(clean_name[i],
-             read_dta(here(data_dir, tb_name[i])),
-             envir = .GlobalEnv
+        read_dta(here(data_dir, tb_name[i])),
+        envir = .GlobalEnv
       )
     } else if (grepl(".*csv$", tb_name[i])) {
       assign(clean_name[i],
-             read.csv(here(data_dir, tb_name[i])),
-             envir = .GlobalEnv
+        read.csv(here(data_dir, tb_name[i])),
+        envir = .GlobalEnv
       )
     } else if (grepl(".*xlsx$", tb_name[i])) {
       assign(clean_name[i],
-             read_excel(here(data_dir, tb_name[i]), sheet = 1),
-             envir = .GlobalEnv
+        read_excel(here(data_dir, tb_name[i]), sheet = 1),
+        envir = .GlobalEnv
       )
     } else if (grepl(".*[Rr][Dd]ata$", tb_name[i])) {
       assign(clean_name[i],
-             get(load(here(data_dir, tb_name[i]))),
-             envir = .GlobalEnv
+        get(load(here(data_dir, tb_name[i]))),
+        envir = .GlobalEnv
       )
     } else if (grepl(".*[Rr]ds$", tb_name[i])) {
       assign(clean_name[i],
-             get(readRDS(here(data_dir, tb_name[i]))),
-             envir = .GlobalEnv
+        get(readRDS(here(data_dir, tb_name[i]))),
+        envir = .GlobalEnv
       )
     }
   }
