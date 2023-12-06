@@ -19,7 +19,8 @@ fake_snack_df <- fake_snack_df %>%
 
 fake_snack_df <- fake_snack_df %>%
   mutate(Lopnr = sample(1:10000, size = nrow(fake_snack_df), replace = FALSE)) %>%
-  mutate(age_base = sample(1:100, size = nrow(fake_snack_df), replace = TRUE), .after = "Lopnr")
+  mutate(age_base = sample(1:100, size = nrow(fake_snack_df), replace = TRUE), .after = "Lopnr") %>%
+  mutate(time = sample(1:10, size = nrow(fake_snack_df), replace = TRUE), .after = "Lopnr")
 
 # generate dates in pure digits for get_date_digit function's example
 fixed_digits <- 19

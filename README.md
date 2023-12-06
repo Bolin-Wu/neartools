@@ -115,6 +115,17 @@ dup_id <- get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
 get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
 ```
 
+# Data manipulation
+
+- `get_unique_join`: Joins multiple tibbles and generates unique columns
+  to record non-NA values when there are identical column names.
+
+``` r
+get_unique_join(tibble_names = c("fake_snacn_ph_wave3", "fake_snacn_ph_fu"),
+                join_type = "full_join",
+                by_col = "Lopnr")
+```
+
 # Data import and export
 
 - `export_sav_to_csv`: Convert all the SPSS data files (*.sav*) to csv

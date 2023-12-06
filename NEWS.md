@@ -1,5 +1,11 @@
 # neartools 0.1.0
 
+## 2023-12-06
+
+### New function `get_unique_join`:
+
+* Joins multiple tibbles and generates unique columns to record non-NA values when there are identical column names.
+
 ## 2023-10-26
 
 ### New function `get_diff_cols`
