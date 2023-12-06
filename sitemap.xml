@@ -31,6 +31,12 @@
     <loc>https://bolin-wu.github.io/neartools/reference/fake_snack_df.html</loc>
   </url>
   <url>
+    <loc>https://bolin-wu.github.io/neartools/reference/fake_snacn_ph_fu.html</loc>
+  </url>
+  <url>
+    <loc>https://bolin-wu.github.io/neartools/reference/fake_snacn_ph_wave3.html</loc>
+  </url>
+  <url>
     <loc>https://bolin-wu.github.io/neartools/reference/fix_empty_string.html</loc>
   </url>
   <url>
@@ -50,6 +56,9 @@
   </url>
   <url>
     <loc>https://bolin-wu.github.io/neartools/reference/get_pretty_template.html</loc>
+  </url>
+  <url>
+    <loc>https://bolin-wu.github.io/neartools/reference/get_unique_join.html</loc>
   </url>
   <url>
     <loc>https://bolin-wu.github.io/neartools/reference/import_bulk.html</loc>
