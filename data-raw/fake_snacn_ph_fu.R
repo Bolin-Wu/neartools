@@ -5,12 +5,12 @@ n_obs <- 800
 max_id <- 1000
 
 fake_snacn_ph_fu <- tibble(
-  Lopnr = sample(c(1:max_id), size = n_obs, replace = FALSE),
+  N1lopnr = sample(c(1:max_id), size = n_obs, replace = FALSE),
   age = sample(1:100, size = n_obs, replace = TRUE),
   ph121 = sample(1:3, size = n_obs, replace = TRUE),
   ph126 = sample(1:3, size = n_obs, replace = TRUE)
 ) %>%
-  arrange(Lopnr)
+  arrange(N1lopnr)
 
 # Function to randomly set a proportion of values to NA in a vector
 set_random_nas <- function(x, proportion) {

@@ -27,7 +27,8 @@ Imports:
     sjlabelled,
     readxl,
     glue,
-    purrr
+    purrr,
+    rlang
 Suggests: 
     rmarkdown,
     roxygen2,
