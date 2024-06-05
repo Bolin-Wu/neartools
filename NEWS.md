@@ -1,5 +1,11 @@
 # neartools 0.1.0
 
+## 2024-06-06
+
+### Update `get_unique_join`:
+
+* The `by_cols` argument can take multiple columns to join on.
+
 ## 2023-12-06
 
 ### New function `get_unique_join`:

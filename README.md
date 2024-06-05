@@ -122,8 +122,8 @@ get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
 
 ``` r
 get_unique_join(tibble_names = c("fake_snacn_ph_wave3", "fake_snacn_ph_fu"),
-                join_type = "full_join",
-                by_col = "Lopnr")
+               join_type = "full_join",
+               by_cols = "Lopnr == N1lopnr, age")
 ```
 
 # Data import and export
