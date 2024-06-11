@@ -2,7 +2,7 @@
 #'
 #' This function joins 2 tibbles and generates unique columns to record non-NA values when there are 2 identical column names.
 #'
-#' The motivation to create this function is that when Bolin extract SNAC-N variables, he finds that for wave 3, there are overlapping information
+#' The motivation to create this function is that when Bolin extracts SNAC-N variables, he finds that for wave 3, there is overlapping information
 #' from different sources.
 #'
 #' For example, for physician variables, there are 3 files:
@@ -16,7 +16,7 @@
 #' In addition, for the same participant and same variable, some are NA in one file whereas not NA in the other file.
 #' If only using a join function, the common columns will be separated to '.x' and '.y'. And we have to use \code{\link{coalesce}} to pick one without NA. And then we delete the '.x' and '.y'  columns.
 #'
-#' To avoid repetitive work, Bolin is writing this function to take in the information from different data files.
+#' To avoid repetitive work, Bolin wrote this function to integrate information from different data files.
 #'
 #' @param tibble_names A vector of tibbles' names in your R environment.
 #' @param join_type It should be one of 'full_join', 'left_join', 'inner_join'.
@@ -40,7 +40,7 @@
 #'
 #' left_join(fake_snacn_ph_wave3, fake_snacn_ph_fu, by = join_by(Lopnr == N1lopnr, age))
 #'
-#' ## let's just combine the info together and only keep the one without NA.
+#' ## let's just combine the info and only keep the one without NA.
 #'
 #'
 #' get_unique_join(tibble_names = c("fake_snacn_ph_wave3", "fake_snacn_ph_fu"),
