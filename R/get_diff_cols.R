@@ -4,12 +4,12 @@
 #' This function finds the columns with different values by comparing the two records with the same ID.
 #' \itemize{
 #'   \item It is useful for deciding which row to keep when we find there are two duplicated IDs (e.g. after using \code{get_dup_id()}.
-#'   \item This function conquers the problem 'NA' values when comparing the columns. Most available functions by default returns 'NA' as long as there is any missing value in the columns. However, we also want to know the columns that one record gives "NA" and the other has values.
+#'   \item This function conquers the problem 'NA' values when comparing the columns with the basic logical operators, e.g '==' and '!='. By default, they return 'NA' as long as there is any 'NA' value in the columns. However, we also want to know if the columns that one record gives "NA" and the other has values.
 #' }
 #'
-#' @param data_file A file contain duplicated IDs.
+#' @param data_file A file contains duplicated IDs.
 #' @param id_str A string that contains ID name. E.g. "lopnr".
-#' @param id_num A specific ID that the user want to examine.
+#' @param id_num A specific ID that the user wants to examine.
 #'
 #' @return It returns a tibble with columns containing different values.
 #'
