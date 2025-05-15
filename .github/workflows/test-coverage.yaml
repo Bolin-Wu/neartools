@@ -50,13 +50,13 @@ jobs:
 
       - name: Upload test results
         if: failure()
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
 
       - name: Upload coverage report
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-report
           path: ./coverage
