@@ -64,7 +64,7 @@
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The motivation to create this function is that when Bolin extract SNAC-N variables, he finds that for wave 3, there are overlapping information
+    <p>The motivation to create this function is that when Bolin extracts SNAC-N variables, he finds that for wave 3, there is overlapping information
 from different sources.</p>
 <p>For example, for physician variables, there are 3 files:</p><ul><li><p>All wave 3 participants.</p></li>
 <li><p>Only cohort 1's follow-up at wave 3.</p></li>
@@ -72,7 +72,7 @@ from different sources.</p>
 </ul><p>There are overlapping of both participants and variables.
 In addition, for the same participant and same variable, some are NA in one file whereas not NA in the other file.
 If only using a join function, the common columns will be separated to '.x' and '.y'. And we have to use <code>coalesce</code> to pick one without NA. And then we delete the '.x' and '.y'  columns.</p>
-<p>To avoid repetitive work, Bolin is writing this function to take in the information from different data files.</p>
+<p>To avoid repetitive work, Bolin wrote this function to integrate information from different data files.</p>
     </div>
 
     <div class="section level2">
@@ -84,7 +84,7 @@ If only using a join function, the common columns will be separated to '.x' and 
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">left_join</span><span class="op">(</span><span class="va">fake_snacn_ph_wave3</span>, <span class="va">fake_snacn_ph_fu</span>, by <span class="op">=</span> <span class="fu">join_by</span><span class="op">(</span><span class="va">Lopnr</span> <span class="op">==</span> <span class="va">N1lopnr</span>, <span class="va">age</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">## let's just combine the info together and only keep the one without NA.</span></span></span>
+<span class="r-in"><span><span class="co">## let's just combine the info and only keep the one without NA.</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_unique_join</span><span class="op">(</span>tibble_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fake_snacn_ph_wave3"</span>, <span class="st">"fake_snacn_ph_fu"</span><span class="op">)</span>,</span></span>
