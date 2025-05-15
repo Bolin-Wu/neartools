@@ -2,8 +2,8 @@ Package: neartools
 Type: Package
 Title: Useful Tools for Daily NEAR Work Tasks
 Version: 1.1.0
-Authors@R: person("Bolin", "Wu", email = "bolin.wu1026@gmail.com",
-  role = c("aut", "cre"))
+Author: Bolin Wu <bolin.wu1026@gmail.com>
+Maintainer: Bolin Wu <bolin.wu1026@gmail.com>
 Description: Practice the DRY principle.
     The goal of this project is to make the daily repetitive work easier.
 License: MIT + file LICENSE
