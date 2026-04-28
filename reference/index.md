@@ -1,0 +1,37 @@
+# Package index
+
+## All functions
+
+- [`df_dup_id`](https://bolin-wu.github.io/neartools/reference/df_dup_id.md)
+  : Example data frame
+- [`export_sav_to_csv()`](https://bolin-wu.github.io/neartools/reference/export_sav_to_csv.md)
+  : Export the SPSS data files to csv files
+- [`fake_caide_df`](https://bolin-wu.github.io/neartools/reference/fake_caide_df.md)
+  : Fake CAIDE data
+- [`fake_snack_df`](https://bolin-wu.github.io/neartools/reference/fake_snack_df.md)
+  : Fake SNAC-K data
+- [`fake_snacn_ph_fu`](https://bolin-wu.github.io/neartools/reference/fake_snacn_ph_fu.md)
+  : Fake SNAC-N data 'fake_snacn_ph_fu'
+- [`fake_snacn_ph_wave3`](https://bolin-wu.github.io/neartools/reference/fake_snacn_ph_wave3.md)
+  : Fake SNAC-N data 'fake_snacn_ph_wave3'
+- [`fix_empty_string()`](https://bolin-wu.github.io/neartools/reference/fix_empty_string.md)
+  : Fix the empty string in csv file
+- [`get_all_colnames()`](https://bolin-wu.github.io/neartools/reference/get_all_colnames.md)
+  : Get all columns of several input data frames
+- [`get_date_digit()`](https://bolin-wu.github.io/neartools/reference/get_date_digit.md)
+  : Inspect the a date column's digit
+- [`get_diff_cols()`](https://bolin-wu.github.io/neartools/reference/get_diff_cols.md)
+  : Get the columns with different values
+- [`get_dup_id()`](https://bolin-wu.github.io/neartools/reference/get_dup_id.md)
+  : Find replicated id in a data file
+- [`get_label_df()`](https://bolin-wu.github.io/neartools/reference/get_label_df.md)
+  : Get labels of a dataset
+- [`get_pretty_template()`](https://bolin-wu.github.io/neartools/reference/get_pretty_template.md)
+  : get_pretty_template
+- [`get_unique_join()`](https://bolin-wu.github.io/neartools/reference/get_unique_join.md)
+  : Get the unique join of two tables
+- [`get_vars_by_pattern()`](https://bolin-wu.github.io/neartools/reference/get_vars_by_pattern.md)
+  : Find variables matching a pattern across multiple datasets
+- [`import_bulk()`](https://bolin-wu.github.io/neartools/reference/import_bulk.md)
+  : Bulk import SPSS(sav) and STATA(dta), MS Excel(csv) Rdata and RDS
+  files into R
