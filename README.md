@@ -117,6 +117,17 @@ dup_id <- get_dup_id(df = df_dup_id, id_str = "id")$replicated_id
 get_diff_cols(data = df_dup_id, id_str = "id", id_num = dup_id[1])
 ```
 
+- `get_vars_by_pattern`: Find variables matching a pattern across
+  multiple datasets.
+
+``` r
+data("fake_snacn_ph_fu")
+data("fake_snacn_ph_wave3")
+
+# Search for specific variables across datasets
+get_vars_by_pattern(data_pattern = "^fake_snacn_ph", var_pattern = "age")
+```
+
 # Data manipulation
 
 - `get_unique_join`: Joins multiple tibbles and generates unique columns

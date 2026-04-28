@@ -1,5 +1,7 @@
 # neartools 1.1.1
 
+* Added `get_vars_by_pattern()` to search for variable names across multiple datasets in the global environment.
+
 # neartools 0.1.0
 
 ## 2024-06-06
