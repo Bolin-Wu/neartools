@@ -1,7 +1,7 @@
 Package: neartools
 Type: Package
 Title: Useful Tools for Daily NEAR Work Tasks
-Version: 1.1.0
+Version: 1.1.1
 Author: Bolin Wu <bolin.wu1026@gmail.com>
 Maintainer: Bolin Wu <bolin.wu1026@gmail.com>
 Description: Practice the DRY principle.
