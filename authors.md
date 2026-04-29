@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/Bolin-Wu/neartools/blob/v1.1.1/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/Bolin-Wu/neartools/blob/master/DESCRIPTION)
 
 Wu B (2026). *neartools: Useful Tools for Daily NEAR Work Tasks*. R
 package version 1.1.1, <https://github.com/Bolin-Wu/neartools>.
