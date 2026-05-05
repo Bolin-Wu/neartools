@@ -18,7 +18,7 @@ library(tidyverse)
 library(neartools)
 library(here)
 library(flextable)
-set_flextable_defaults(font.size = 11, padding = 3)
+set_flextable_defaults(font.size = 11, padding = 3, big.mark = "")
 # use_df_printer()
 ```
 
@@ -44,8 +44,8 @@ neartools::fake_snack_df %>%
   add_footer_lines(glue::glue("Reference: {df_name}")) %>%
   color(part = "footer", color = "#666666") %>%
   theme_vanilla() %>%
-  autofit() %>%
-  width(width = 1) # adjust this if the autofit generates too big tables
+  autofit()  %>%
+  set_table_properties(layout = "autofit", width = 0.8)# adjust this if the autofit generates too big tables
 ```
 
 If one wants to generate tables by loop:
