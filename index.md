@@ -10,6 +10,7 @@ You can install the development version of `neartools` from
 [GitHub](https://github.com/Bolin-Wu/neartools) with:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("Bolin-Wu/neartools", force = TRUE)
 ```
@@ -21,6 +22,7 @@ devtools::install_github("Bolin-Wu/neartools", force = TRUE)
     environment.
 
 ``` r
+
 library(neartools)
 
 # Load example data into Global Environment
@@ -38,6 +40,7 @@ get_all_colnames(df_name = c("fake_snacn_ph_fu", "fake_snacn_ph_wave3"))
     including specialized conversions for SPSS data.
 
 ``` r
+
 # Import all supported files in a folder
 import_bulk(data_dir = "path/to/data", file_type = "all")
 
@@ -67,6 +70,7 @@ Generate standardized R Markdown templates for HTML, PDF, or Word
 reports:
 
 ``` r
+
 get_pretty_template(type = "html", output_dir = "reports")
 ```
 
