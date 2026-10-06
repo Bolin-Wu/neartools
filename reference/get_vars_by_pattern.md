@@ -7,15 +7,16 @@ naming pattern.
 ## Usage
 
 ``` r
-get_vars_by_pattern(data_pattern = NULL, var_pattern = NULL)
+get_vars_by_pattern(dataset_pattern = "", var_pattern = NULL)
 ```
 
 ## Arguments
 
-- data_pattern:
+- dataset_pattern:
 
   A string containing a regular expression to match the names of the
-  datasets in the global environment. For more information on supported
+  datasets in the global environment. Use \`dataset_pattern = ""\` (the
+  default) to search all objects. For more information on supported
   regular expressions, see [R's regex
   documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/help/regex.html).
 
@@ -39,6 +40,6 @@ data("fake_snacn_ph_fu")
 data("fake_snacn_ph_wave3")
 
 # Search for variables starting with "ph" in SNAC-N physical datasets
-get_vars_by_pattern(data_pattern = "^fake_snacn_ph", var_pattern = "^ph")
+get_vars_by_pattern(dataset_pattern = "^fake_snacn_ph", var_pattern = "^ph")
 } # }
 ```

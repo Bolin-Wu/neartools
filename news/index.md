@@ -1,5 +1,13 @@
 # Changelog
 
+## neartools 1.1.2
+
+- Updated
+  [`get_vars_by_pattern()`](https://bolin-wu.github.io/neartools/reference/get_vars_by_pattern.md):
+  - Renamed argument `data_pattern` → `dataset_pattern`
+  - Default is now `dataset_pattern = ""` (searches all objects)
+  - Improved input validation for `var_pattern`
+
 ## neartools 1.1.1
 
 - Added
