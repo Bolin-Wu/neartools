@@ -1,24 +1,65 @@
-test_that("get_vars_by_pattern handles missing parameters and package data correctly", {
-  # Setup: Ensure package datasets are in the global environment
-  .GlobalEnv$fake_snacn_ph_fu <- neartools::fake_snacn_ph_fu
-  .GlobalEnv$fake_snacn_ph_wave3 <- neartools::fake_snacn_ph_wave3
+test_that("get_vars_by_pattern works with matching datasets and variables", {
+  # Create temporary data frames in the global environment
+  assign("test_df_a", data.frame(ph_age = 1:3, other = 4:6, ph_bmi = 7:9),
+         envir = .GlobalEnv)
+  assign("test_df_b", data.frame(ph_weight = 10:12, height = 13:15),
+         envir = .GlobalEnv)
+  assign("test_not_df", list(a = 1), envir = .GlobalEnv)  # should be ignored
 
-  # 1. Test error when parameters are missing
-  expect_error(get_vars_by_pattern(var_pattern = "age"), "Please specify data_pattern")
-  expect_error(get_vars_by_pattern(data_pattern = "^fake"), "Please specify var_pattern")
+  on.exit({
+    rm(list = c("test_df_a", "test_df_b", "test_not_df"), envir = .GlobalEnv)
+  }, add = TRUE)
 
-  # 2. Test finding variables across matching datasets
-  res_age <- get_vars_by_pattern(data_pattern = "^fake_snacn_ph", var_pattern = "age")
-  expect_type(res_age, "list")
-  expect_true("age" %in% res_age$fake_snacn_ph_fu)
-  expect_true("age" %in% res_age$fake_snacn_ph_wave3)
+  result <- get_vars_by_pattern(dataset_pattern = "^test_df", var_pattern = "^ph")
 
-  # 3. Test behavior when data_pattern matches nothing
+  expect_type(result, "list")
+  expect_named(result, c("test_df_a", "test_df_b"))
+  expect_equal(result$test_df_a, c("ph_age", "ph_bmi"))
+  expect_equal(result$test_df_b, "ph_weight")
+})
+
+test_that("get_vars_by_pattern returns NULL when no datasets match", {
   expect_message(
-    get_vars_by_pattern(data_pattern = "not_a_dataset", var_pattern = "age"),
+    result <- get_vars_by_pattern(dataset_pattern = "^nonexistent_xyz", var_pattern = "age"),
     "No datasets found matching pattern"
   )
+  expect_null(result)
+})
 
-  # Cleanup Global Environment
-  rm(fake_snacn_ph_fu, fake_snacn_ph_wave3, envir = .GlobalEnv)
+test_that("get_vars_by_pattern returns NULL when no variables match", {
+  assign("test_df_c", data.frame(age = 1:3, bmi = 4:6), envir = .GlobalEnv)
+  on.exit(rm("test_df_c", envir = .GlobalEnv), add = TRUE)
+
+  expect_message(
+    result <- get_vars_by_pattern(dataset_pattern = "^test_df_c", var_pattern = "^ph"),
+    "No variables found matching pattern"
+  )
+  expect_null(result)
+})
+
+test_that("get_vars_by_pattern searches all objects when dataset_pattern is empty", {
+  assign("test_df_d", data.frame(ph_score = 1:2), envir = .GlobalEnv)
+  on.exit(rm("test_df_d", envir = .GlobalEnv), add = TRUE)
+
+  result <- get_vars_by_pattern(dataset_pattern = "", var_pattern = "^ph")
+
+  expect_true("test_df_d" %in% names(result))
+  expect_equal(result$test_df_d, "ph_score")
+})
+
+test_that("get_vars_by_pattern errors when var_pattern is missing or empty", {
+  expect_error(
+    get_vars_by_pattern(dataset_pattern = "test"),
+    "`var_pattern` must be a non-empty string"
+  )
+
+  expect_error(
+    get_vars_by_pattern(dataset_pattern = "test", var_pattern = ""),
+    "`var_pattern` must be a non-empty string"
+  )
+
+  expect_error(
+    get_vars_by_pattern(dataset_pattern = "test", var_pattern = NULL),
+    "`var_pattern` must be a non-empty string"
+  )
 })
