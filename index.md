@@ -30,7 +30,7 @@ data("fake_snacn_ph_fu")
 data("fake_snacn_ph_wave3")
 
 # Search for variables starting with 'ph' across SNAC-N datasets
-get_vars_by_pattern(data_pattern = "^fake_snacn_ph", var_pattern = "^ph")
+get_vars_by_pattern(dataset_pattern = "^fake_snacn_ph", var_pattern = "^ph")
 
 # Get comprehensive column metadata (labels, NA percentages, etc.)
 get_all_colnames(df_name = c("fake_snacn_ph_fu", "fake_snacn_ph_wave3"))
